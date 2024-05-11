@@ -9,9 +9,9 @@ const Tab = createMaterialTopTabNavigator();
 function TopTabNavigator() {
   return (
     <Tab.Navigator>
-      <Tab.Screen name="ForYou" component={HomeScreen} options={{ title: 'For You' }} />
+      <Tab.Screen name="ForYou" component={HomeScreen} options={{ title: 'Events' }} />
       <Tab.Screen name="Accounts" component={AccountsScreen} options={{ title: 'Accounts' }} />
-      <Tab.Screen name="Events" component={EventsScreen} options={{ title: 'Events' }} />
+      
     </Tab.Navigator>
   );
 }

@@ -1,13 +1,20 @@
-// AccountsScreen.js
 import React from 'react';
-import { View, Text, SafeAreaView, ScrollView } from 'react-native';
+import { ScrollView, View } from 'react-native';
+import ProfileCard from '../components/ProfileCard';
+import profiles from '../data/profile';
 
-const AccountsScreen = () => (
-  <SafeAreaView style={{ flex: 1 }}>
+const AccountsScreen = ({ navigation }) => {
+  return (
     <ScrollView>
-      <Text>Accounts Information</Text>
+      {profiles.map(profile => (
+        <ProfileCard
+          key={profile.id}
+          profile={profile}
+          onPress={() => navigation.navigate('ProfileDetail', { profileId: profile.id })}
+        />
+      ))}
     </ScrollView>
-  </SafeAreaView>
-);
+  );
+};
 
 export default AccountsScreen;

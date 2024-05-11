@@ -5,9 +5,9 @@ import EventCard from '../components/EventCard';
 
 // Sample data for events
 const events = [
-  { id: 1, title: 'Spring Hackaton', description: 'Join us for a fun and challenging hackathon.' },
-  { id: 2, title: 'Festival F', description: 'Annual music and arts festival.' },
-  { id: 3, title: 'Diego Velazquez Exhibition', description: 'Explore the works of Diego Velazquez.' }
+  { id: 1, title: 'Spring Hackaton', description: 'Join us for a fun and challenging hackathon.',  image: require('../assets/SpringHackaton.jpg'), description: 'Join us for a fun and challenging hackathon.', date: '2023-05-01', duration: 2, owner: 'Community Org' },
+  { id: 2, title: 'Festival F', description: 'Annual music and arts festival.',  image: require('../assets/FestivalF.png') },
+  { id: 3, title: 'Diego Velazquez Exhibition', description: 'Explore the works of Diego Velazquez.', image: require('../assets/velazquez.jpg')}
 ];
 
 // HomeScreen component definition
