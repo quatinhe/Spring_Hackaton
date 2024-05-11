@@ -2,7 +2,7 @@ import React from 'react';
 import { ScrollView, View, Text, StyleSheet, Image, FlatList, TouchableOpacity } from 'react-native';
 import { IconButton } from 'react-native-paper';
 
-const ChatScreen = () => {
+const ChatScreen = (props) => {
 
   const profiles = [
     {
@@ -125,7 +125,7 @@ const profiles2 = [
               <Text style={Rowstyles.TextName}>{profile.name}</Text>
               <Text style={Rowstyles.TextDescription}>{profile.about}</Text>
             </View>
-            <TouchableOpacity onPress={() => doNothing}>
+            <TouchableOpacity onPress={() => openChat(props, profile.name)}>
             <IconButton icon="message-outline" />
             </TouchableOpacity>
           </View>
@@ -139,6 +139,10 @@ const profiles2 = [
 };
 const doNothing = () => {
   //console.log('nothing');
+}
+
+const openChat = (props, name) => {
+  props.navigation.navigate('ConversationScreen', {name: name});
 }
 const AvatarWithName = ({ image, name, lastName }) => {
   return (

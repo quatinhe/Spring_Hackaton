@@ -7,6 +7,7 @@ import ProfileDetailScreen from '../screens/ProfileDetailScreen';
 import { BottomNavBar } from '../components/BottomNavBar';
 import ProfileScreen from '../screens/ProfileScreen';
 import ProfileEventScreen from '../screens/ProfileEventScreen';
+import ConversationScreen from '../screens/ConversationScreen';
 
 const Stack = createStackNavigator();
 
@@ -35,6 +36,15 @@ function AppNavigator() {
         component={ProfileEventScreen}
         options={{
           title: 'Profile Details',
+          headerTitleAlign: 'center', 
+        }}
+      />
+      <Stack.Screen
+        name="ConversationScreen"
+        component={ConversationScreen}
+        options={{
+          headerShown: false,
+          title: 'Conversation Details',
           headerTitleAlign: 'center', 
         }}
       />
