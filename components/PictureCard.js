@@ -1,80 +1,33 @@
 import React from 'react';
 import { View, Text, Image, StyleSheet } from 'react-native';
 
-const PictureCard = () => {
-  const posts = [
-    {
-      avatarPhoto: require("../assets/profileUser/1.jpg"),
-      profileName: 'John Doe',
-      location: 'New York, USA ',
-      date: ' April 3, 2024',
-      image: require("../assets/posts/camping.jpg"),
-      overlayImage: require("../assets/posts/selfie1.webp"),
-    },
-    {
-      avatarPhoto: require("../assets/profileUser/2.jpg"),
-      profileName: 'Edward Smith',
-      location: 'London, UK ',
-      date: ' May 10, 2024',
-      image: require("../assets/posts/concert.jpg"),
-      overlayImage: require("../assets/posts/selfie2.jpg"),
-    },
-    {
-      avatarPhoto: require("../assets/profileUser/3.jpeg"),
-      profileName: 'July Roberts',
-      location: 'Sydney, Australia ',
-      date: ' February 19, 2024',
-      image: require("../assets/posts/gaming.jpg"),
-      overlayImage: require("../assets/posts/selfie4.jpg"),
-    },
-    {
-      avatarPhoto: require("../assets/profileUser/9.jpeg"),
-      profileName: 'Emily Anderson',
-      location: 'Lisbon, Portugal ',
-      date: ' January 28, 2024',
-      image: require("../assets/posts/tennis.jpg"),
-      overlayImage: require("../assets/posts/selfie5.jpg"),
-    },
-    {
-        avatarPhoto: require("../assets/profileUser/5.jpg"),
-        profileName: 'Maria Leonor',
-        location: 'Sintra, Portugal ',
-        date: ' January 2, 2024',
-        image: require("../assets/posts/cooking.jpg"),
-        overlayImage: require("../assets/posts/selfie3.jpg"),
-      },
-  ];
+const PictureCard = ({post, index, small}) => {
 
   return (
-    <View>
-      {posts.map((post, index) => (
-        <View style={styles.container} key={index}>
-          <View style={styles.header}>
-            <Image source={post.avatarPhoto} style={styles.avatar} />
-            <View style={styles.headerText}>
-              <Text style={styles.profileName}>{post.profileName}</Text>
-              <Text style={styles.details}>{post.location} - {post.date}</Text>
+        <View style={styles(small).container} key={index}>
+          <View style={styles(small).header}>
+            <Image source={post.avatarPhoto} style={styles(small).avatar} />
+            <View style={styles(small).headerText}>
+              <Text style={styles(small).profileName}>{post.profileName}</Text>
+              <Text style={styles(small).details}>{post.location} - {post.date}</Text>
             </View>
           </View>
-          <Image source={post.image} style={styles.image} />
-          <Image source={post.overlayImage} style={styles.overlayImage} />
-          <View style={styles.iconContainer}>
-            <Image source={require("../assets/icons/clapping.png")} style={styles.iconClap} />
-            <Image source={require("../assets/icons/coment.png")} style={styles.icon} />
-            <Image source={require("../assets/icons/share.png")} style={styles.icon} />
+          <Image source={post.image} style={styles(small).image} />
+          <Image source={post.overlayImage} style={styles(small).overlayImage} />
+          <View style={styles(small).iconContainer}>
+            <Image source={require("../assets/icons/clapping.png")} style={styles(small).iconClap} />
+            <Image source={require("../assets/icons/coment.png")} style={styles(small).icon} />
+            <Image source={require("../assets/icons/share.png")} style={styles(small).icon} />
           </View>
         </View>
-      ))}
-       <View style={{ marginBottom: 100 }} />
-    </View>
   );
 };
 
-const styles = StyleSheet.create({
+const styles = (small) => StyleSheet.create({
   container: {
     backgroundColor: '#fff',
     borderRadius: 10,
-    marginBottom: 10,
+    marginBottom: small ? 20 : 10,
     shadowColor: '#000',
     shadowOffset: {
       width: 0,
@@ -83,7 +36,7 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.25,
     shadowRadius: 3.84,
     elevation: 5,
-    marginLeft: 10,
+    marginLeft: small ? 5 : 10,
     marginRight: 10,
     marginTop: 10,
   },
@@ -113,7 +66,7 @@ const styles = StyleSheet.create({
   },
   image: {
     width: '100%',
-    height: 450,
+    height: small ? 300 : 450,
     borderRadius: 0,
     shadowColor: '#000',
     shadowOffset: {
@@ -148,7 +101,7 @@ const styles = StyleSheet.create({
     height: '25%',
     resizeMode: 'cover',
     borderRadius: 10,
-    top: '60%',
+    top: small ? '56%' : '60%',
     right: '10%',
   },
 });
