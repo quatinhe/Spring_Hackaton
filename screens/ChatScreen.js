@@ -44,7 +44,6 @@ const profiles2 = [
     categories: ['Music', 'Technology'],
     profilePicture: require('../assets/cv.jpg'),
     about: "I want to learn and have fun"
-    
   },
   {
     id: 2,
@@ -54,41 +53,42 @@ const profiles2 = [
     about: "I will become the very best, like no one ever was."
   },
   {
-      id: 3,
-      name: "Beatriz Santos",
-      categories: ['Art', 'Music'],
-      profilePicture: require('../assets/bea.jpg'),
-      about: "Passionate professional, dedicated to empowering teams, fostering growth, and innovation."
-    },
-    {
-      id: 4,
-      name: "Maria Silva",
-      categories: ['Business', 'Finance'],
-      profilePicture: require('../assets/maria.webp'),
-      about: "Strategic thinker with a knack for driving results and fostering collaboration."
-    },
-    {
-      id: 5,
-      name: "Sophia Chen",
-      categories: ['Technology', 'Engineering'],
-      profilePicture: require('../assets/sofia.jpg'),
-      about: "Tech enthusiast with a passion for solving complex problems and driving change through innovation."
-    },
-    {
-      id: 6,
-      name: "David Johnson",
-      categories: ['Engineering', 'Technology'],
-      profilePicture: require('../assets/david.jpg'),
-      about: "Innovative engineer passionate about leveraging technology to solve real-world problems and drive positive change."
-    },
-    {
-      id: 7,
-      name: "Michael Brown",
-      categories: ['Finance', 'Business'],
-      profilePicture: require('../assets/michael.jpg'),
-      about: "Strategic financial analyst with a proven track record of optimizing business performance and maximizing profitability."
-    }
+    id: 3,
+    name: "Beatriz Santos",
+    categories: ['Art', 'Music'],
+    profilePicture: require('../assets/bea.jpg'),
+    about: "Passionate professional, dedicated to empowering teams, fostering growth, and innovation."
+  },
+  {
+    id: 4,
+    name: "Maria Silva",
+    categories: ['Business', 'Finance'],
+    profilePicture: require('../assets/maria.webp'),
+    about: "Strategic thinker with a knack for driving results and fostering collaboration."
+  },
+  {
+    id: 5,
+    name: "Sophia Chen",
+    categories: ['Technology', 'Engineering'],
+    profilePicture: require('../assets/sofia.jpg'),
+    about: "Tech enthusiast with a passion for solving complex problems ."
+  },
+  {
+    id: 6,
+    name: "David Johnson",
+    categories: ['Engineering', 'Technology'],
+    profilePicture: require('../assets/david.jpg'),
+    about: "Innovative engineer passionate about leveraging technology to solve real-world problems ."
+  },
+  {
+    id: 7,
+    name: "Michael Brown",
+    categories: ['Finance', 'Business'],
+    profilePicture: require('../assets/michael.jpg'),
+    about: "Strategic financial analyst with a proven track record."
+  }
 ];
+
 
   return (
     <View style={styles.container}>
