@@ -7,7 +7,9 @@ const profiles = [
     id: 1,
     name: "André Singh",
     categories: ['Music', 'Technology'],
-    profilePicture: require('../assets/cv.jpg')
+    profilePicture: require('../assets/cv.jpg'),
+    about: "I want to learn and have fun"
+    
   },
   {
     id: 2,
@@ -31,7 +33,10 @@ const AccountsScreen = ({ navigation }) => {
         <ProfileCard
           key={profile.id}
           profile={profile}
-          onPress={() => navigation.navigate('ProfileDetail', { profileId: profile.id })}
+          onPress={() => {
+            console.log("Navigating with profile ID:", profile);
+            navigation.navigate('ProfileDetail', { profile : profile });
+          }}
         />
       ))}
     </ScrollView>
