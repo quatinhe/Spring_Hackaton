@@ -15,13 +15,13 @@ const profiles = [
     id: 2,
     name: "João Jorge",
     categories: ['Art', 'Music'],
-    profilePicture: require('../assets/FestivalF.png')
+    profilePicture: require('../assets/joao.jpg')
   },
   {
       id: 3,
       name: "Beatriz Santos",
       categories: ['Art', 'Music'],
-      profilePicture: require('../assets/FestivalF.png')
+      profilePicture: require('../assets/bea.jpg')
     },
   // Add more profiles as needed
 ];
