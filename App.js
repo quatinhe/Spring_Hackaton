@@ -3,6 +3,8 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { View, Text, ScrollView, SafeAreaView, StatusBar } from 'react-native';
 import { Card } from 'react-native-paper';
+import EventCard from './components/EventCard';
+import HomeScreen from './screens/HomeScreen'; 
 
 const Stack = createStackNavigator();
 
@@ -13,26 +15,7 @@ const events = [
   { id: 3, title: 'Diego Velazquez Exhibition', description: 'Explore the works of Diego Velazquez.' }
 ];
 
-// Event Card Component
-const EventCard = ({ event }) => (
-  <Card style={{ margin: 10 }}>
-    <Card.Title title={event.title} />
-    <Card.Content>
-      <Text>{event.description}</Text>
-    </Card.Content>
-  </Card>
-);
 
-// Main Screen
-const HomeScreen = () => (
-  <SafeAreaView style={{ flex: 1 }}>
-    <ScrollView style={{ flex: 1 }}>
-      {events.map(event => (
-        <EventCard key={event.id} event={event} />
-      ))}
-    </ScrollView>
-  </SafeAreaView>
-);
 
 export default function App() {
   return (
