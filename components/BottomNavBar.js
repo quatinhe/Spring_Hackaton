@@ -8,6 +8,7 @@ import ProfileScreen from '../screens/ProfileScreen';
 import PhotoScreen from '../screens/PhotoScreen';
 import {Colors} from "../theme/theme";
 import CircleIcon from './CircleIcon';
+import TabNavigator from '../components/TabNavigator';
 
 export const BottomNavBar = () => {
     
@@ -65,7 +66,7 @@ export const BottomNavBar = () => {
                 headerShown: false, tabBarShowLabel: false, tabBarStyle: [styles.bottomBar, styles.shadow], animationEnabled: true
             }}
         >
-            {TabScreen("Events", EventsScreen, require("../assets/icons/events.png"), Colors.lighBlue, 40, 30)}
+            {TabScreen("Events", TabNavigator, require("../assets/icons/events.png"), Colors.lighBlue, 40, 30)}
             {TabScreen("Circle", CircleScreen, require("../assets/icons/circle.png"), Colors.veryLighBlue, 40, 30)}
             {TabScreen("Photo", PhotoScreen, require("../assets/icons/camera.png"), Colors.lightPink, 40, 30, isCenterIcon = true)}
             {TabScreen("Chat", ChatScreen, require("../assets/icons/chat.png"), Colors.purple, 25, 30)}

@@ -12,7 +12,7 @@ export const Colors = {
     
     border: '#CCCCCC',
     error: '#DF0101',
-
+    white: '#FFFFFF',
   };
   
 
