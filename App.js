@@ -8,6 +8,7 @@ import {BottomNavBar} from './components/BottomNavBar';
 import WelcomingScreen from './screens/registerScreens/WelcomingScreen';
 import RegistrationScreen from './screens/registerScreens/RegisterScreen';
 import InterestScreen from './screens/registerScreens/InterestScreen2';
+import MainScreen from './screens/MainScreen';
 
 const Stack = createStackNavigator();
 const isLogged = false;
@@ -31,6 +32,7 @@ return (
         <Stack.Screen name="Welcome" component={WelcomingScreen} options={{ headerShown: false }} />
         <Stack.Screen name="RegisterScreen" component={RegistrationScreen} options={{ headerShown: false }} />
         <Stack.Screen name="InterestScreen" component={InterestScreen} options={{ headerShown: false }}/>
+        <Stack.Screen name="MainScreen" component={BottomNavBar} options={{ headerShown: false }}/>
       </Stack.Navigator>
     </SafeAreaView>
   </NavigationContainer>

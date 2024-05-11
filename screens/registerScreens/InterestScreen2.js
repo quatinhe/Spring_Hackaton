@@ -90,7 +90,7 @@ const InterestScreen2 = (props) => {
                     <ButtonInterests key={index} name={category} onPress={pressedExtraCategory} pressed={true} />
                 ))}
             </View>
-            <TouchableOpacity style={styles.buttonNext} onPress={() => (console.log("hey"))}>
+            <TouchableOpacity style={styles.buttonNext} onPress={() => props.navigation.navigate("MainScreen")}>
                 <Text style={styles.buttonText}>Next</Text>
             </TouchableOpacity>
         </ScrollView>
