@@ -6,7 +6,7 @@ const CircleScreen = () => (
   
     <ScrollView>
     {posts.map((post, index) => (
-      <PictureCard post={post} index={index} small={false}/>
+      <PictureCard key={index} post={post} index={index} small={false}/>
     ))}
     <View style={{ marginBottom: 85 }} />
     </ScrollView>
