@@ -1,12 +1,15 @@
 
 export const Colors = {
-    primary: '#0068DC',
-    secondary: '#0095F0',
-    ternary: '#9737FF',
-    quartenary: '#EF83E2',
+    darkBlue: '#0068DC',
+    lighBlue: '#0095F0',
+    veryLighBlue: '#00DBDA',
+    purple: '#9737FF',
+    pink: '#EF83E2',
+    lightPink: '#F2BDF9',
+    white: '#FFFFFF',
     background: '#EDEDED',
     text: '#3E3E3E',
-    accent: '#00DBDA',
+    
     border: '#CCCCCC',
     error: '#DF0101',
     white: '#FFFFFF',
@@ -14,8 +17,8 @@ export const Colors = {
   
 
   export const Fonts = {
-    regular: 'Jaldi-Regular',
-    bold: 'Jaldi-Bold',
+    regular: 'OpenSans-Regular',
+    bold: 'OpenSans-Bold',
   };
   
   
