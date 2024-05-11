@@ -3,6 +3,7 @@ import { createMaterialTopTabNavigator } from '@react-navigation/material-top-ta
 import { View, TextInput, StyleSheet } from 'react-native';
 import HomeScreen from '../screens/HomeScreen';
 import AccountsScreen from '../screens/AccountsScreen';
+import EventScreen from '../screens/EventsScreen';
 
 const Tab = createMaterialTopTabNavigator();
 
@@ -25,7 +26,7 @@ function TopTabNavigator() {
           tabBarPressColor: '#FF385C', // Android ripple color
         }}
       >
-        <Tab.Screen name="Events" component={HomeScreen} />
+        <Tab.Screen name="Events" component={EventScreen} />
         <Tab.Screen name="Accounts" component={AccountsScreen} />
       </Tab.Navigator>
     </>
