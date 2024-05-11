@@ -2,7 +2,6 @@ import React from 'react';
 import { View, Text, StyleSheet, ScrollView, Image } from 'react-native';
 import { Button } from 'react-native-paper';
 
-// Assuming you are passing the event object as a navigation parameter
 const EventDetailScreen = ({ route }) => {
   const { event } = route.params;
 
