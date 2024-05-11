@@ -71,7 +71,7 @@ export const BottomNavBar = () => {
             {TabScreen("Circle", CircleScreen, require("../assets/icons/circle.png"), Colors.veryLighBlue, 40, 30)}
             {TabScreen("Photo", PhotoScreen, require("../assets/icons/camera.png"), Colors.lightPink, 40, 30, isCenterIcon = true)}
             {TabScreen("Chat", ChatScreen, require("../assets/icons/chat.png"), Colors.purple, 25, 30)}
-            {TabScreen("Profile", ProfileEventScreen, require("../assets/icons/profile.png"), Colors.pink, 25, 30)}
+            {TabScreen("Profile", ProfileScreen, require("../assets/icons/profile.png"), Colors.pink, 25, 30)}
         </Tab.Navigator>)
 
 };
@@ -91,8 +91,8 @@ const styles = StyleSheet.create({
         backgroundColor: "#ffffff",
         position: "absolute",
         bottom: 10,
-        left: 20,
-        right: 20,
+        left: 8,
+        right: 8,
         elevation: 5,
         borderRadius: 25,
         height: 75,

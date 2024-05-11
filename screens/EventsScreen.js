@@ -1,9 +1,13 @@
 import React from 'react';
-import { View, StyleSheet, FlatList, Text, ScrollView } from 'react-native';
+import { View, StyleSheet, FlatList, Text, ScrollView, SafeAreaView } from 'react-native';
 import EventCard from '../components/EventCard';
 import EventCardHorizontal from '../components/EventCardHorizontal';
+import { Colors } from '../theme/theme';
+import CategorySelector from '../components/CategorySelector';
+import { Feather } from '@expo/vector-icons';
 
-const EventScreen = ({ }) => {
+
+const EventScreen = ({ navigation }) => {
 
   const events = [
     {
@@ -39,21 +43,29 @@ const EventScreen = ({ }) => {
     }
   ];
 
+  const categories = ['Gaming', 'Voleybol', 'Painting', 'Clubbing', "Hiking", "Cooking"];
+
   return (
     <ScrollView style={styles.container}>
       <Text style={styles.title}>Recomended Activities:</Text>
       <View style={styles.container2}>
         <FlatList
           data={events}
-          renderItem={({ item }) => <EventCard event={item} />}
-          keyExtractor={(item) => item.id}
+          renderItem={({ item }) => <EventCard  navigation= { navigation} event={item} />}
+          keyExtractor={(item) => item.id} 
           horizontal
         />
       </View>
       <Text style={styles.title}>Your Future Activities:</Text>
+      <SafeAreaView style={styles.safeArea}>
+        <View style={styles.containerToggle}>
+          <CategorySelector categories={categories} />
+          <Feather name="chevron-right" size={24} color="black" style={styles.arrowIcon} />
+        </View>
+      </SafeAreaView>
       <View style={styles.container2}>
         {events.map(event => (
-          <EventCardHorizontal event={event} key={event.id} />
+          <EventCardHorizontal navigation= { navigation} event={event} key={event.id} />
         ))}
       </View>
       <View style={{ marginBottom: 100 }} />
@@ -65,15 +77,27 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 10,
-    backgroundColor: '#fff',
+    backgroundColor: Colors.background,
   },
   container2: {
     marginBottom: 20,
   },
   title: {
-    fontSize: 18,
+    fontSize: 20,
+    marginLeft: 5,
     fontWeight: 'bold',
     marginBottom: 10,
+  },
+  safeArea: {
+    flex: 1,
+  },
+  containerToggle: {
+
+  },
+  arrowIcon: {
+    position: 'absolute',
+    top: 8,
+    right: -8,
   },
 });
 

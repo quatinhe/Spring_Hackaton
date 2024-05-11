@@ -6,7 +6,7 @@ import { Colors } from '../theme/theme';
 import EventCard from '../components/EventCard';
 import PictureCard from '../components/PictureCard';
 
-const ProfileScreen = () => {
+const ProfileScreen = ({ navigation}) => {
 
   const events = [
     {
@@ -154,7 +154,7 @@ const ProfileScreen = () => {
           <View style={styles.container2}>
             <FlatList
               data={events}
-              renderItem={({ item }) => <EventCard event={item} />}
+              renderItem={({ item }) => <EventCard navigation= { navigation} event={item} />}
               keyExtractor={(item) => item.id}
               horizontal
             />
@@ -169,7 +169,7 @@ const ProfileScreen = () => {
           <View style={styles.container2}>
             <FlatList
               data={events}
-              renderItem={({ item }) => <EventCard event={item} />}
+              renderItem={({ item }) => <EventCard navigation= { navigation} event={item} />}
               keyExtractor={(item) => item.id}
               horizontal
             />
@@ -184,7 +184,7 @@ const ProfileScreen = () => {
           <View style={styles.container2}>
             <FlatList
               data={events}
-              renderItem={({ item }) => <EventCard event={item} />}
+              renderItem={({ item }) => <EventCard navigation= { navigation} event={item} />}
               keyExtractor={(item) => item.id}
               horizontal
             />

@@ -31,13 +31,13 @@ const ProfileCard = ({ profile, onPress }) => {
 const styles = StyleSheet.create({
   card: {
     flexDirection: 'row', // Align items in a row
-    padding: 10,
+    padding: 8,
     alignItems: 'center', // Center items vertically in the container
     backgroundColor: '#fff',
     borderBottomWidth: 1,
     borderBottomColor: '#eee',
     marginVertical: 5,
-    margin: 20,
+    margin: 15,
     borderRadius: 20,
   },
   image: {
