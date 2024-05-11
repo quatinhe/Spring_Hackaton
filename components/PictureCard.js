@@ -13,7 +13,7 @@ const PictureCard = () => {
     },
     {
       avatarPhoto: require("../assets/profileUser/2.jpg"),
-      profileName: 'Jane Smith',
+      profileName: 'Edward Smith',
       location: 'London, UK ',
       date: ' May 10, 2024',
       image: require("../assets/posts/concert.jpg"),
