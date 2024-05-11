@@ -9,6 +9,7 @@ export const Colors = {
     accent: '#00DBDA',
     border: '#CCCCCC',
     error: '#DF0101',
+    white: '#FFFFFF',
   };
   
 
