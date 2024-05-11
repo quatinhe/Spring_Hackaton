@@ -10,8 +10,7 @@ import RegistrationScreen from './screens/registerScreens/RegisterScreen';
 import InterestScreen from './screens/registerScreens/InterestScreen2';
 
 const Stack = createStackNavigator();
-
-isLogged = true;
+const isLogged = false;
 
 export default function App() {
 
@@ -31,8 +30,8 @@ return (
       <Stack.Navigator >
         <Stack.Screen name="Welcome" component={WelcomingScreen} options={{ headerShown: false }} />
         <Stack.Screen name="RegisterScreen" component={RegistrationScreen} options={{ headerShown: false }} />
-        <Stack.Screen name="InterestScreen" component={InterestScreen} options={{ headerShown: false }} />
-    </Stack.Navigator>
+        <Stack.Screen name="InterestScreen" component={InterestScreen} options={{ headerShown: false }}/>
+      </Stack.Navigator>
     </SafeAreaView>
   </NavigationContainer>
 );
