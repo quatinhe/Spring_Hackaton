@@ -24,12 +24,13 @@ export const BottomNavBar = () => {
                     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
                       <CircleIcon icon={require('../assets/icons/camera.png')} />
                     </View>
-                
+
                   ) : (
                     <View style={{
                       alignItems: "center",
                       justifyContent: "center",
-                      top: Platform.OS === 'ios' ? 10 : 0
+                      top: Platform.OS === 'ios' ? 10 : 0,
+                      shadowColor: "#111111",
                     }}>
                       <Image
                         source={tabIcon}
@@ -38,11 +39,13 @@ export const BottomNavBar = () => {
                         style={{
                           width: sizeWidth,
                           height: sizeHeight,
-                          tintColor: focused ? color : "#748c94"
+                          tintColor: focused ? color : "#748c94",
+                          marginBottom: 2,
                         }}
                       />
                       <Text style={{
-                        fontSize: 12, color: focused ? color : "#748c94"
+                        fontSize: 12, color: focused ? color : "#748c94",
+                        
                       }}>
                         {name}
                       </Text>
