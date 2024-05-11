@@ -15,5 +15,17 @@ function TopTabNavigator() {
     </Tab.Navigator>
   );
 }
+<Tab.Navigator
+  screenOptions={{
+    tabBarActiveTintColor: '#e91e63',  // Color of the active tab label
+    tabBarInactiveTintColor: 'gray',   // Color of the inactive tab labels
+    tabBarLabelStyle: { fontSize: 16, fontWeight: 'bold' },  // Font size and weight of labels
+    tabBarStyle: { backgroundColor: 'white' },  // Background color of the tab bar
+    tabBarIndicatorStyle: { backgroundColor: '#e91e63', height: 4 },  // Style of the active tab indicator
+  }}
+>
+  {/* Tab Screens */}
+</Tab.Navigator>
+
 
 export default TopTabNavigator;
