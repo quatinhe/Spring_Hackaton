@@ -18,24 +18,29 @@ const events = [
   { id: 3, title: 'Diego Velazquez Exhibition', description: 'Explore the works of Diego Velazquez.' }
 ];
 
-isLogged = false;
+isLogged = true;
 
 export default function App() {
 
   if (isLogged) return (
   <NavigationContainer>
     <SafeAreaView style={{ flex: 1 }}>
-      <TabNavigator/>
+      <BottomNavBar/>
     </SafeAreaView>
   </NavigationContainer>);
 
 
   
-  return (
-    <NavigationContainer>
-      <SafeAreaView style={{ flex: 1 }}>
-        <TabNavigator />
-      </SafeAreaView>
-    </NavigationContainer>
-  );
+return (
+  <NavigationContainer >
+    <StatusBar backgroundColor="#EAEAEA" barStyle="light-content" />
+    <SafeAreaView style={{ flex: 1 }}> 
+      <Stack.Navigator >
+        <Stack.Screen name="Welcome" component={WelcomingScreen} options={{ headerShown: false }} />
+        <Stack.Screen name="RegisterScreen" component={RegistrationScreen} options={{ headerShown: false }} />
+        <Stack.Screen name="InterestScreen" component={InterestScreen} options={{ headerShown: false }} />
+    </Stack.Navigator>
+    </SafeAreaView>
+  </NavigationContainer>
+);
 }
