@@ -18,10 +18,12 @@ const ProfileCard = ({ profile, onPress }) => {
       </View>
       <IconButton
         icon={isFollowing ? 'heart' : 'heart-outline'}  // Change icon based on following state
-        color={isFollowing ? 'red' : 'grey'}  // Change color based on following state
+        color={isFollowing ? 'red' : 'grey'}  
+        
         onPress={handleFollow}  // Handle follow toggle
         size={24}  // Icon size
       />
+      
     </TouchableOpacity>
   );
 };
