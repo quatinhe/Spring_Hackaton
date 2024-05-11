@@ -1,15 +1,30 @@
 import React from 'react';
 import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
+import { Card, IconButton } from 'react-native-paper';
 
-const ProfileCard = ({ profile, onPress }) => (
-  <TouchableOpacity onPress={onPress} style={styles.card}>
-    <Image source={profile.profilePicture} style={styles.image} />
-    <View style={styles.infoContainer}>
-      <Text style={styles.name}>{profile.name}</Text>
-      <Text style={styles.categories}>{profile.categories.join(', ')}</Text>
-    </View>
-  </TouchableOpacity>
-);
+const ProfileCard = ({ profile, onPress }) => {
+  const [isFollowing, setIsFollowing] = React.useState(false);
+
+  const handleFollow = () => {
+    setIsFollowing(!isFollowing);  // Toggle the following state
+  };
+
+  return (
+    <TouchableOpacity onPress={onPress} style={styles.card}>
+      <Image source={profile.profilePicture} style={styles.image} />
+      <View style={styles.infoContainer}>
+        <Text style={styles.name}>{profile.name}</Text>
+        <Text style={styles.categories}>{profile.categories.join(', ')}</Text>
+      </View>
+      <IconButton
+        icon={isFollowing ? 'heart' : 'heart-outline'}  // Change icon based on following state
+        color={isFollowing ? 'red' : 'grey'}  // Change color based on following state
+        onPress={handleFollow}  // Handle follow toggle
+        size={24}  // Icon size
+      />
+    </TouchableOpacity>
+  );
+};
 
 const styles = StyleSheet.create({
   card: {
