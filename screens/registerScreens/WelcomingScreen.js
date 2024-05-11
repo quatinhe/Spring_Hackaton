@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
     width: 100, // Adjust the size of the button
     height: 100, // Adjust the size of the button
     borderRadius: 50, // Half of the width and height to make it circular
-    backgroundColor: Colors.quartenary, // Use the primary color from your theme
+    backgroundColor: Colors.lightPink, // Use the primary color from your theme
     justifyContent: 'center',
     alignItems: 'center',
     marginTop: 20,
@@ -65,7 +65,7 @@ const styles = StyleSheet.create({
 
   buttonRegister: {
     width: 150, // Adjust the size of the button
-    height: 100, // Adjust the size of the button
+    height: 80, // Adjust the size of the button
     borderRadius: 50, // Half of the width and height to make it circular
     backgroundColor: "#D9D9D9", // Use the primary color from your theme
     justifyContent: 'center',

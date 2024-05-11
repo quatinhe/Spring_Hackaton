@@ -8,31 +8,24 @@ import {BottomNavBar} from './components/BottomNavBar';
 import WelcomingScreen from './screens/registerScreens/WelcomingScreen';
 import RegistrationScreen from './screens/registerScreens/RegisterScreen';
 import InterestScreen from './screens/registerScreens/InterestScreen2';
+import MainScreen from './screens/MainScreen';
 
 const Stack = createStackNavigator();
 
-isLogged = true;
 
 export default function App() {
-
-  if (isLogged) return (
-  <NavigationContainer>
-    <SafeAreaView style={{ flex: 1 }}>
-      <BottomNavBar/>
-    </SafeAreaView>
-  </NavigationContainer>);
-
-
+  var isLoggedIn = true;
   
 return (
   <NavigationContainer >
     <StatusBar backgroundColor="#EAEAEA" barStyle="light-content" />
     <SafeAreaView style={{ flex: 1 }}> 
-      <Stack.Navigator >
+      <Stack.Navigator initialRouteName={isLoggedIn ? "MainScreen" : "Welcome"} >
         <Stack.Screen name="Welcome" component={WelcomingScreen} options={{ headerShown: false }} />
         <Stack.Screen name="RegisterScreen" component={RegistrationScreen} options={{ headerShown: false }} />
-        <Stack.Screen name="InterestScreen" component={InterestScreen} options={{ headerShown: false }} />
-    </Stack.Navigator>
+        <Stack.Screen name="InterestScreen" component={InterestScreen} options={{ headerShown: false }}/>
+        <Stack.Screen name="MainScreen" component={BottomNavBar} options={{ headerShown: false }}/>
+      </Stack.Navigator>
     </SafeAreaView>
   </NavigationContainer>
 );
