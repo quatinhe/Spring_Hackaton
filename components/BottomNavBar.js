@@ -9,6 +9,7 @@ import PhotoScreen from '../screens/PhotoScreen';
 import {Colors} from "../theme/theme";
 import CircleIcon from './CircleIcon';
 import TabNavigator from '../components/TabNavigator';
+import ProfileEventScreen from '../screens/ProfileEventScreen';
 
 export const BottomNavBar = () => {
     
@@ -70,7 +71,7 @@ export const BottomNavBar = () => {
             {TabScreen("Circle", CircleScreen, require("../assets/icons/circle.png"), Colors.veryLighBlue, 40, 30)}
             {TabScreen("Photo", PhotoScreen, require("../assets/icons/camera.png"), Colors.lightPink, 40, 30, isCenterIcon = true)}
             {TabScreen("Chat", ChatScreen, require("../assets/icons/chat.png"), Colors.purple, 25, 30)}
-            {TabScreen("Profile", ProfileScreen, require("../assets/icons/profile.png"), Colors.pink, 25, 30)}
+            {TabScreen("Profile", ProfileEventScreen, require("../assets/icons/profile.png"), Colors.pink, 25, 30)}
         </Tab.Navigator>)
 
 };
