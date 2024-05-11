@@ -1,12 +1,12 @@
 import React from 'react';
 import { View, Text, SafeAreaView, ScrollView } from 'react-native';
 
-const EventsScreen = () => (
+const ProfileScreen = () => (
   <SafeAreaView style={{ flex: 1 }}>
     <ScrollView>
-      <Text>Events Information</Text>
+      <Text>profile Information</Text>
     </ScrollView>
   </SafeAreaView>
 );
 
-export default EventsScreen;
+export default ProfileScreen;

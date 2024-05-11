@@ -4,6 +4,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { View, Text, ScrollView, StatusBar, Image } from 'react-native';
 import TabNavigator from './components/TabNavigator';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import {BottomNavBar} from './components/BottomNavBar';
 
 const Stack = createStackNavigator();
 
@@ -20,7 +21,7 @@ export default function App() {
   return (
     <NavigationContainer>
       <SafeAreaView style={{ flex: 1 }}>
-        <TabNavigator />
+        <BottomNavBar />
       </SafeAreaView>
     </NavigationContainer>
   );
