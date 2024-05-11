@@ -12,7 +12,6 @@ import AppNavigator from './navigation/AppNavigator';
 
 const Stack = createStackNavigator();
 
-isLogged = true;
 
 export default function App() {
 
@@ -29,11 +28,12 @@ return (
   <NavigationContainer >
     <StatusBar backgroundColor="#EAEAEA" barStyle="light-content" />
     <SafeAreaView style={{ flex: 1 }}> 
-      <Stack.Navigator >
+      <Stack.Navigator initialRouteName={isLoggedIn ? "MainScreen" : "Welcome"} >
         <Stack.Screen name="Welcome" component={WelcomingScreen} options={{ headerShown: false }} />
         <Stack.Screen name="RegisterScreen" component={RegistrationScreen} options={{ headerShown: false }} />
-        <Stack.Screen name="InterestScreen" component={InterestScreen} options={{ headerShown: false }} />
-    </Stack.Navigator>
+        <Stack.Screen name="InterestScreen" component={InterestScreen} options={{ headerShown: false }}/>
+        <Stack.Screen name="MainScreen" component={BottomNavBar} options={{ headerShown: false }}/>
+      </Stack.Navigator>
     </SafeAreaView>
   </NavigationContainer>
 );

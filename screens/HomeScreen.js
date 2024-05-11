@@ -13,11 +13,11 @@ const events = [
 // HomeScreen component definition
 const HomeScreen = () => (
   <SafeAreaView style={{ flex: 1 }}>
-    <ScrollView style={{ flex: 1 }}>
+    {/* <ScrollView style={{ flex: 1 }}>
       {events.map(event => (
         <EventCard key={event.id} event={event} />
       ))}
-    </ScrollView>
+    </ScrollView> */}
   </SafeAreaView>
 );
 

@@ -5,39 +5,36 @@ import Icon from 'react-native-vector-icons/MaterialIcons'; // Choose suitable i
 const EventCard = ({ event, onPress }) => {
   return (
     <TouchableOpacity onPress={onPress} style={styles.card}>
-      <View style={styles.imageContainer}>
-        <Image source={event.image} style={styles.image} />
-      </View>
+      <View style={styles.rowContainer}>
+        <View style={styles.imageContainer}>
+          <Image source={event.image} style={styles.image} />
+        </View>
 
-      <View style={styles.contentContainer}>
-        <Text style={styles.title}>{event.title}</Text>
+        <View style={styles.contentContainer}>
+          <Text style={styles.title}>{event.title}</Text>
 
-        <View style={styles.details}>
+          <View style={styles.details}>
+            <View style={styles.columnContainer}>
+              <View style={styles.detailsRowAvatar}>
+                <Image source={event.avatar} style={styles.avatar} />
+                <Text style={styles.avatarName}>{event.name}</Text>
+              </View>
 
+              <View style={styles.detailsRowLocation}>
+                <Icon name="location-on" size={14} color="#666" />
+                <Text style={styles.detailText}>{event.location}</Text>
+              </View>
 
-          <View style={styles.columnContainer}>
-
-            <View style={styles.detailsRowAvatar}>
-              <Image source={event.avatar} style={styles.avatar} />
-              <Text style={styles.avatarName}>{event.name}</Text>
-            </View>
-
-            <View style={styles.detailsRowLocation}>
-              <Icon name="location-on" size={14} color="#666" />
-              <Text style={styles.detailText}>{event.location}</Text>
-            </View>
-
-            <View style={styles.detailsRow}>
-              <Icon name="event" size={14} color="#666" />
-              <Text style={styles.detailText}>{event.date}</Text>
+              <View style={styles.detailsRow}>
+                <Icon name="event" size={14} color="#666" />
+                <Text style={styles.detailText}>{event.date}</Text>
+              </View>
             </View>
           </View>
 
+          <Text style={styles.description}>{event.description}</Text>
         </View>
-
-        <Text style={styles.description}>{event.description}</Text>
       </View>
-
     </TouchableOpacity>
   );
 };
@@ -51,19 +48,19 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.25,
     shadowRadius: 3.84,
     elevation: 5,
-    margin: 5,
-    marginRight: 15,
-    width: 220,
-    marginBottom: 15,
+    marginBottom: 20,
+    marginRight: 10,
+    marginLeft: 10,
   },
   imageContainer: {
-    height: 80,
+    
   },
   image: {
-    width: '100%',
-    height: 120,
+    width: 120,
+    height: 150,
   },
   contentContainer: {
+    flex: 1,
     padding: 10,
     backgroundColor: '#fff',
   },
