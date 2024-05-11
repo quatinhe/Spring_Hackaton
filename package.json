@@ -28,7 +28,8 @@
     "react-native-swipe-list-view": "^3.2.9",
     "react-native-swipeable": "^0.6.0",
     "react-native-swiper": "^1.6.0",
-    "react-native-tab-view": "^3.5.2"
+    "react-native-tab-view": "^3.5.2",
+    "expo-camera": "~15.0.6"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0"
