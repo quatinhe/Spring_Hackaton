@@ -17,31 +17,127 @@ const ProfileScreen = ({ navigation }) => {
       title: 'Spring Hackaton',
       description: 'Join us for a fun and challenging \nhackathon.',
       image: require('../assets/SpringHackaton.jpg'),
-      avatar: require('../assets/profileUser/1.jpg'),
-      date: '2023-05-01',
+      avatar: require('../assets/profileUser/logoNinf.png'),
+      date: '2024-05-12',
       duration: 2,
-      name: 'Community Org',
-      location: 'New York, USA'
+      name: 'Núcleo de informática',
+      location: 'Caparica, Portugal'
     },
     {
       id: "2",
       title: 'Festival F',
-      date: '2023-05-01',
+      date: '2024-09-15',
       description: 'Annual music and arts\n festival.',
       image: require('../assets/FestivalF.png'),
-      avatar: require('../assets/profileUser/1.jpg'),
-      name: 'Community Org',
-      location: 'London, UK'
+      avatar: require('../assets/profileUser/logoF.jpeg'),
+      name: 'Câmara municipal de Faro',
+      location: 'Faro, Portugal'
     },
     {
       id: "3",
-      title: 'Diego Velazquez Exhibition',
-      date: '2023-05-01',
-      description: 'Explore the works of \nDiego Velazquez.',
-      image: require('../assets/velazquez.jpg'),
-      avatar: require('../assets/profileUser/1.jpg'),
-      name: 'Community Org',
+      title: 'Cooking class',
+      date: '2024-01-15',
+      description: 'Increase your cooking skills\nwhile having fun!',
+      image: require('../assets/cookingclass.jpg'),
+      avatar: require('../assets/profileUser/cookingLogo.png'),
+      name: 'Cooking School',
       location: 'Madrid, Spain'
+    },
+    {
+      id: "4",
+      title: 'Canoeing',
+      date: '2024-08-25',
+      description: 'Explore the waters of \nthe lake Naoh.',
+      image: require('../assets/posts/canooing2.jpg'),
+      avatar: require('../assets/profileUser/logoClub.jpeg'),
+      name: 'Nautic Club',
+      location: 'Nuremberg, Germany'
+    },
+  ];
+
+  const events2 = [
+    {
+      id: "1",
+      title: 'Canoeing',
+      date: '2024-08-25',
+      description: 'Explore the waters of \nthe lake Léman.',
+      image: require('../assets/posts/canooing2.jpg'),
+      avatar: require('../assets/profileUser/logoClub.jpeg'),
+      name: 'Nautic Club',
+      location: 'Genebra, Switzerland'
+    },
+    {
+      id: "2",
+      title: 'Art class',
+      description: 'Join us for a fun and challenging \nart class with acrylic painting!',
+      image: require('../assets/art.jpg'),
+      avatar: require('../assets/profileUser/atelieLogo.jpg'),
+      date: '2024-01-31',
+      name: 'Clara Mariah Atelie',
+      location: 'Porto, Portugal'
+    },
+    {
+      id: "3",
+      title: 'Hiking in the mountains',
+      date: '2024-08-25',
+      description: 'Explore the montains of \nthe Alrgarve.',
+      image: require('../assets/hiking.jpg'),
+      avatar: require('../assets/profileUser/logoSaoBras.jpeg'),
+      name: 'Junta freguesia de São Brás',
+      location: 'São Brás, Portugal'
+    },
+    {
+      id: "4",
+      title: 'Noth Festival',
+      date: '2025-08-15',
+      description: 'Go to the biggest music festival\nin the north of Portugal!',
+      image: require('../assets/festivalNorth.jpg'),
+      avatar: require('../assets/profileUser/festivalLogo.png'),
+      name: 'Noth Events',
+      location: 'Porto, Portugal'
+    }
+  ];
+
+  const events3 = [
+    {
+      id: "1",
+      title: 'Art class',
+      description: 'Join us for a fun and challenging \nart class with acrylic painting!',
+      image: require('../assets/art.jpg'),
+      avatar: require('../assets/profileUser/atelieLogo.jpg'),
+      date: '2024-01-31',
+      name: 'Clara Mariah Atelie',
+      location: 'Porto, Portugal'
+    },
+    {
+      id: "2",
+      title: 'Hiking in the mountains',
+      date: '2024-08-25',
+      description: 'Explore the montains of \nthe Alrgarve.',
+      image: require('../assets/hiking.jpg'),
+      avatar: require('../assets/profileUser/logoSaoBras.jpeg'),
+      name: 'Junta freguesia de São Brás',
+      location: 'São Brás, Portugal'
+    },
+    {
+      id: "3",
+      title: 'Canoeing',
+      date: '2024-08-25',
+      description: 'Explore the waters of \nthe lake Léman.',
+      image: require('../assets/posts/canooing2.jpg'),
+      avatar: require('../assets/profileUser/logoClub.jpeg'),
+      name: 'Nautic Club',
+      location: 'Genebra, Switzerland'
+    },
+    {
+      id: "4",
+      title: 'Noth Festival',
+      date: '2025-08-15',
+      description: 'Go to the biggest music festival\nin the north of Portugal!',
+      image: require('../assets/festivalNorth.jpg'),
+      avatar: require('../assets/profileUser/festivalLogo.png'),
+      name: 'Noth Events',
+      location: 'Porto, Portugal'
     }
   ];
 
@@ -253,7 +349,7 @@ const ProfileScreen = ({ navigation }) => {
               </View>
               <View style={styles.container2}>
                 <FlatList
-                  data={events}
+                  data={events2}
                   renderItem={({ item }) => <EventCard navigation={navigation} event={item} />}
                   keyExtractor={(item) => item.id}
                   horizontal
@@ -268,7 +364,7 @@ const ProfileScreen = ({ navigation }) => {
               </View>
               <View style={styles.container2}>
                 <FlatList
-                  data={events}
+                  data={events3}
                   renderItem={({ item }) => <EventCard navigation={navigation} event={item} />}
                   keyExtractor={(item) => item.id}
                   horizontal
