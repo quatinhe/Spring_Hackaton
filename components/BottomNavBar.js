@@ -10,8 +10,9 @@ import {Colors} from "../theme/theme";
 import CircleIcon from './CircleIcon';
 import TabNavigator from '../components/TabNavigator';
 import ProfileEventScreen from '../screens/ProfileEventScreen';
+import ProfileScreen2 from '../screens/ProfileScreen2';
 
-export const BottomNavBar = () => {
+export const BottomNavBar = ({ navigation }) => {
     
     const Tab = createBottomTabNavigator();
 
