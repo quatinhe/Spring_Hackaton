@@ -101,6 +101,9 @@ const [activeTab, setActiveTab] = useState('All');
     </TouchableOpacity>
   );
 
+  const openChat = (name) => {
+    navigation.navigate('ConversationScreen', {name: name});
+  }
 
 
   return (
@@ -132,7 +135,7 @@ const [activeTab, setActiveTab] = useState('All');
               <Text style={Rowstyles.TextName}>{profile.name}</Text>
               <Text style={Rowstyles.TextDescription}>{profile.about}</Text>
             </View>
-            <TouchableOpacity onPress={() => openChat(props, profile.name)}>
+            <TouchableOpacity onPress={() => openChat(profile.name)}>
             <IconButton icon="message-outline" />
             </TouchableOpacity>
           </View>
@@ -148,10 +151,6 @@ const doNothing = () => {
   //console.log('nothing');
 }
 
-
-const openChat = (name) => {
-  navigation.navigate('ConversationScreen', {name: name});
-}
 const AvatarWithName = ({ image, name, lastName, navigation }) => {
   return (
     <TouchableOpacity style={Avatarstyles.container} onPress={() => {
