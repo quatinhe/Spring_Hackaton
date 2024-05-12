@@ -8,6 +8,7 @@ import { BottomNavBar } from '../components/BottomNavBar';
 import ProfileScreen from '../screens/ProfileScreen';
 import ProfileEventScreen from '../screens/ProfileEventScreen';
 import ConversationScreen from '../screens/ConversationScreen';
+import CreateEventScreen from '../screens/CreateEvent';
 
 const Stack = createStackNavigator();
 
@@ -48,6 +49,16 @@ function AppNavigator() {
           headerTitleAlign: 'center', 
         }}
       />
+      <Stack.Screen
+        name="CreateEventScreen"
+        component={CreateEventScreen}
+        options={{
+          headerShown: false,
+          title: 'Create Event',
+          headerTitleAlign: 'center', 
+        }}
+      />
+
 
     </Stack.Navigator>
   );

@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet, ScrollView, Image } from 'react-native';
-import { Button } from 'react-native-paper';
+import { Button, FAB } from 'react-native-paper';
+
 
 const EventDetailScreen = ({ route }) => {
   const { event } = route.params;
@@ -18,6 +19,7 @@ const EventDetailScreen = ({ route }) => {
           Attend
         </Button>
       </View>
+
     </ScrollView>
   );
 };
@@ -55,6 +57,12 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: '#666',
     marginBottom: 20
+  },
+  fab: {
+    position: 'absolute',
+    margin: 16,
+    right: 0,
+    bottom: 0
   }
 });
 
