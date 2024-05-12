@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { Colors } from '../theme/theme';
 
 const ButtonInterests = ({ name, onPress, pressed }) => {
     const [isPressed, setIsPressed] = useState(pressed);
@@ -30,11 +31,10 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         marginTop: 20,
         marginHorizontal: 2,
-        borderColor: 'black',
-        borderWidth: 1,
+       
     },
     buttonPressed: {
-        backgroundColor: 'gray', // Change the background color when pressed
+        backgroundColor: Colors.veryVeryLighBlue, // Change the background color when pressed
     },
     buttonText: {
         color: 'black',

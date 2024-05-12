@@ -127,8 +127,8 @@ const [activeTab, setActiveTab] = useState('All');
         </View>
       </View>
       <ScrollView style={styles.chatContainer}>
-        {profiles2.map(profile => (
-          <>
+        {profiles2.map((profile, index) => (
+          <View key={index} >
           <View style={Rowstyles.container}>
             <Image source={profile.profilePicture} style={Avatarstyles.avatar} />
             <View style={Rowstyles.containerText}>
@@ -140,7 +140,7 @@ const [activeTab, setActiveTab] = useState('All');
             </TouchableOpacity>
           </View>
           <View style={Rowstyles.horizontalLine}></View>
-          </>
+          </View>
         ))}
         <View style={{ marginBottom: 100 }} />
         </ScrollView>
@@ -151,9 +151,9 @@ const doNothing = () => {
   //console.log('nothing');
 }
 
-const AvatarWithName = ({ image, name, lastName, navigation }) => {
+const AvatarWithName = ({ image, name, lastName, navigation, index }) => {
   return (
-    <TouchableOpacity style={Avatarstyles.container} onPress={() => {
+    <TouchableOpacity key={index} style={Avatarstyles.container} onPress={() => {
       navigation.navigate('InstaPhoto');
     }}>
       <View style={Avatarstyles.avatarContainer}>

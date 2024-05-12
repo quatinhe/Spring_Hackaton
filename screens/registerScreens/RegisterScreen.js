@@ -19,7 +19,7 @@ const RegistrationScreen = (props) => {
                 source={require('../../assets/LOGO.png')}
                 style={styles.logo}
                 ></Image>
-                <Text style={{ fontSize: 50, textAlign: 'center', fontWeight: 'bold', color: 'black', marginTop: 10, margin: 40}}> Register </Text>
+                <Text style={{ fontSize: 38, textAlign: 'center', fontWeight: 'bold', color: 'black', marginTop: 10, marginBottom: 15}}> Register </Text>
                 <View style={{ alignItems: 'flex-start' }}>
                     <TextInputWithLabel
                         label="Name:"
@@ -93,11 +93,12 @@ const styles = StyleSheet.create({
       justifyContent: 'center',
       alignItems: 'center',
       margin: 20,
+      marginBottom: 60,
       
     },
     buttonText: {
       color: 'white', // Use the text color from your theme
-      fontSize: 20, // Set the font size as needed
+      fontSize: 15, // Set the font size as needed
       fontWeight: 'bold',
     },
 });

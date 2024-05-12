@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
     marginVertical: 10,
   },
   label: {
-    fontSize: 25,
+    fontSize: 18,
     marginBottom: 5,
     fontStyle: 'bold',
     marginLeft: 10,
@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     paddingVertical: 8,
     fontSize: 16,
-    width: 350,
+    width: 330,
   },
 });
 

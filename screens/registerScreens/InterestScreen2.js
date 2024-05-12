@@ -1,4 +1,4 @@
-import React,{ useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Text, SafeAreaView, ScrollView, View, Image, StyleSheet, TextInput, TouchableOpacity } from 'react-native';
 import ButtonInterests from '../../components/ButtonInterests';
 import ButtonInterests2 from '../../components/ButtonInterests2';
@@ -37,9 +37,9 @@ const InterestScreen2 = (props) => {
         }
     }
 
-    
+
     const getCorrespondingCategories = (mainCategory) => {
-        switch(mainCategory){
+        switch (mainCategory) {
             case 'Sports':
                 return sports;
             case 'Entertainment':
@@ -62,53 +62,59 @@ const InterestScreen2 = (props) => {
 
     return (
         <SafeAreaView style={{ flex: 1 }}>
-        <ScrollView>
-            <View style={styles.container}>
-            <Text style={{ fontSize: 50, textAlign: 'center', fontWeight: 'bold', color: 'black', marginTop: 10, margin: 40}}> What are you Interested in? </Text>
-            </View>
-            <View style={{ flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'space-around' }}>
-                <ButtonInterests2 name="Sports" onPress={pressedCategory} />
-                <ButtonInterests2 name="Entertainment" onPress={pressedCategory} />
-                <ButtonInterests2 name="Art" onPress={pressedCategory} />
-                <ButtonInterests2 name="Volunteering" onPress={pressedCategory} />
-                <ButtonInterests2 name="Night Life" onPress={pressedCategory} />
-                <ButtonInterests2 name="Food" onPress={pressedCategory} />
-                <ButtonInterests2 name="Travelling" onPress={pressedCategory} />
-            </View>
-            <Text style={{ fontSize: 30, textAlign: 'center', fontWeight: 'bold', color: 'gray', marginTop: 20}}> Customize your Interests? </Text>
-            <View style={styles.line} />
-            <View style={{ flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'space-around' }}>
-                {extraCategories.map((category, index) => (
-                    <ButtonInterests key={index} name={category} onPress={pressedExtraCategory} pressed={selected.includes(category)} />
-                ))}
-            </View>
-            <Text style={{ fontSize: 30, textAlign: 'center', fontWeight: 'bold', color: 'gray', marginTop: 20}}> Selected </Text>
-            <View style={styles.line} />
-            <View style={{ flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'space-around' }}>
-            {selected.map((category, index) => (
-                    <ButtonInterests key={index} name={category} onPress={pressedExtraCategory} pressed={true} />
-                ))}
-            </View>
-            <TouchableOpacity style={styles.buttonNext} onPress={() => props.navigation.navigate("MainScreen")}>
-                <Text style={styles.buttonText}>Next</Text>
-            </TouchableOpacity>
-        </ScrollView>
+            <ScrollView>
+                <View style={styles.container}>
+                    <Text style={{ fontSize: 33, textAlign: 'center', fontWeight: 'bold', color: 'black', marginTop: 30, margin: 40 }}> What are you Interested in? </Text>
+                </View>
+                <View style={{ flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'space-around' }}>
+                    <ButtonInterests2 name="Sports" onPress={pressedCategory} />
+                    <ButtonInterests2 name="Entertainment" onPress={pressedCategory} />
+                    <ButtonInterests2 name="Art" onPress={pressedCategory} />
+                    <ButtonInterests2 name="Volunteering" onPress={pressedCategory} />
+                    <ButtonInterests2 name="Night Life" onPress={pressedCategory} />
+                    <ButtonInterests2 name="Food" onPress={pressedCategory} />
+                    <ButtonInterests2 name="Travelling" onPress={pressedCategory} />
+                </View>
+                <Text style={{ fontSize: 22, textAlign: 'center', fontWeight: 'bold', color: 'gray', marginTop: 20 }}> Customize your Interests? </Text>
+                <View style={styles.line} />
+                <View style={{ flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'space-around' }}>
+                    {extraCategories.length === 0 ?
+                        <Text style={{ fontSize: 16, textAlign: 'center', color: 'gray', marginTop: 20, marginBottom: 40 }}> No selected categories </Text>
+                        : extraCategories.map((category, index) => (
+                            <ButtonInterests key={index} name={category} onPress={pressedExtraCategory} pressed={selected.includes(category)} />
+                        ))}
+                </View>
+                <Text style={{ fontSize: 22, textAlign: 'center', fontWeight: 'bold', color: 'gray', marginTop: 20 }}> Selected </Text>
+                <View style={styles.line} />
+                <View style={{ flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'space-around', marginBottom: 20}}>
+                    {selected.length === 0 ?
+                        <Text style={{ fontSize: 16, textAlign: 'center', color: 'gray', marginTop: 20, marginBottom: 40 }}> No selected categories </Text>
+                        : selected.map((category, index) => (
+                            <ButtonInterests key={index} name={category} onPress={pressedExtraCategory} pressed={true} />
+                        ))}
+
+                </View>
+                <TouchableOpacity style={styles.buttonNext} onPress={() => props.navigation.navigate("MainScreen")}>
+                    <Text style={styles.buttonText}>Next</Text>
+                </TouchableOpacity>
+                <View style={{ marginBottom: 60 }} />
+            </ScrollView>
         </SafeAreaView>
-)
-    
+    )
+
 };
 
 const styles = StyleSheet.create({
     container: {
-      flex: 1,
+        flex: 1,
     },
     line: {
         borderBottomWidth: 2, // Adjust the width as needed
         borderColor: 'gray', // Adjust the color as needed
         marginHorizontal: 20, // Adjust the margin as needed
         marginVertical: 2, // Adjust the margin as needed
-      },
-      button: {
+    },
+    button: {
         width: 90,
         height: 50,
         borderRadius: 50,
@@ -127,14 +133,16 @@ const styles = StyleSheet.create({
         backgroundColor: 'black', // Use the primary color from your theme
         justifyContent: 'center',
         alignItems: 'center',
-        margin: 20,
-        
-      },
-      buttonText: {
+        marginTop: 10,
+        marginLeft: 5,
+        //margin: 20,
+
+    },
+    buttonText: {
         color: 'white', // Use the text color from your theme
         fontSize: 20, // Set the font size as needed
         fontWeight: 'bold',
-      },
+    },
 });
 
 export default InterestScreen2;

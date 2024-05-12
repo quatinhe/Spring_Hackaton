@@ -14,7 +14,7 @@ const Stack = createStackNavigator();
 
 
 export default function App() {
-  var isLogged = true;
+  var isLogged = false;
   if (isLogged) return (
   <NavigationContainer>
     <SafeAreaView style={{ flex: 1 }}>
@@ -32,7 +32,7 @@ return (
         <Stack.Screen name="Welcome" component={WelcomingScreen} options={{ headerShown: false }} />
         <Stack.Screen name="RegisterScreen" component={RegistrationScreen} options={{ headerShown: false }} />
         <Stack.Screen name="InterestScreen" component={InterestScreen} options={{ headerShown: false }}/>
-        
+        <Stack.Screen name="MainScreen" component={AppNavigator} options={{ headerShown: false }} />
       </Stack.Navigator>
     </SafeAreaView>
   </NavigationContainer>
