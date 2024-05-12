@@ -17,48 +17,111 @@ const ProfileScreen2 = ({ navigation }) => {
 
   const events = [
     {
-      id: "1",
-      title: 'Spring Hackaton',
-      description: 'Join us for a fun and challenging \nhackathon.',
-      image: require('../assets/SpringHackaton.jpg'),
-      avatar: require('../assets/profileUser/logoNinf.png'),
-      date: '2024-05-12',
-      duration: 2,
-      name: 'Núcleo de informática',
-      location: 'Caparica, Portugal'
+        id: "1",
+        title: 'Mario Kart Event',
+        date: '2025-05-01',
+        description: 'Come have fun playing Mario Kart with us!',
+        image: require('../assets/mario.jpg'),
+        avatar: require('../assets/profileUser/1.jpg'),
+        name: 'João Jorge',
+        location: 'Lisbon, Portugal'
     },
     {
       id: "2",
       title: 'Festival F',
-      date: '2024-09-15',
+      date: '2024-09-01',
       description: 'Annual music and arts\n festival.',
       image: require('../assets/FestivalF.png'),
-      avatar: require('../assets/profileUser/logoF.jpeg'),
-      name: 'Câmara municipal de Faro',
-      location: 'Faro, Portugal'
+      avatar: require('../assets/profileUser/1.jpg'),
+      name: 'Community Org',
+      location: 'London, UK'
     },
     {
       id: "3",
-      title: 'Cooking class',
-      date: '2024-01-15',
-      description: 'Increase your cooking skills\nwhile having fun!',
-      image: require('../assets/cookingclass.jpg'),
-      avatar: require('../assets/profileUser/cookingLogo.png'),
-      name: 'Cooking School',
+      title: 'Diego Velazquez Exhibition',
+      date: '2024-05-01',
+      description: 'Explore the works of \nDiego Velazquez.',
+      image: require('../assets/velazquez.jpg'),
+      avatar: require('../assets/profileUser/1.jpg'),
+      name: 'Community Org',
       location: 'Madrid, Spain'
     },
     {
-      id: "4",
-      title: 'Canoeing',
-      date: '2024-08-25',
-      description: 'Explore the waters of \nthe lake Naoh.',
-      image: require('../assets/posts/canooing2.jpg'),
-      avatar: require('../assets/profileUser/logoClub.jpeg'),
-      name: 'Nautic Club',
-      location: 'Nuremberg, Germany'
-    },
+        id: "4",
+        title: 'Spring Hackaton',
+        description: 'Join us for a fun and challenging \nhackathon.',
+        image: require('../assets/SpringHackaton.jpg'),
+        avatar: require('../assets/profileUser/1.jpg'),
+        date: '2024-05-10',
+        duration: 2,
+        name: 'Community Org',
+        location: 'New York, USA'
+      },
   ];
 
+  const data = {
+    id: '1',
+    name: 'Samantha Smith',
+    job: 'Marketing',
+    birthdate: 'April 3, 1998',
+    description: "I'm Samantha, your go-to girl for all things marketing! By day, I'm busy crafting killer campaigns and bringing brands to life. But when the workday's over, you'll find me embracing life to the fullest. I'm a free spirit with a passion for adventure and a love for the simple things.",
+    interests: ['Yoga', 'Traveling', 'Reading', 'Singing', 'Animals', 'Socializing'],
+    icon: "work-outline",
+    images: [require("../assets/profileUser/profile/concert.jpg"),
+    require('../assets/profileUser/profile/cicling.jpg'),
+    require('../assets/profileUser/profile/dog.jpg'),
+    require('../assets/profileUser/profile/ioga.jpg'),
+    require('../assets/profileUser/profile/traveling.jpg')]
+  };
+
+  const posts = [
+    {
+      id: '1',
+      avatarPhoto: require("../assets/profileUser/7.jpg"),
+      profileName: 'Samantha Smith',
+      location: 'New York, USA ',
+      date: ' April 3, 2024',
+      image: require("../assets/posts/camping.jpg"),
+      overlayImage: require("../assets/posts/selfie1.webp"),
+    },
+    {
+      id: '2',
+      avatarPhoto: require("../assets/profileUser/7.jpg"),
+      profileName: 'Samantha Smith',
+      location: 'London, UK ',
+      date: ' May 10, 2024',
+      image: require("../assets/posts/concert.jpg"),
+      overlayImage: require("../assets/posts/selfie2.jpg"),
+    },
+    {
+      id: '3',
+      avatarPhoto: require("../assets/profileUser/7.jpg"),
+      profileName: 'Samantha Smith',
+      location: 'Sydney, Australia ',
+      date: ' February 19, 2024',
+      image: require("../assets/posts/gaming.jpg"),
+      overlayImage: require("../assets/posts/selfie4.jpg"),
+    },
+    {
+      id: '4',
+      avatarPhoto: require("../assets/profileUser/7.jpg"),
+      profileName: 'Samantha Smith',
+      location: 'Lisbon, Portugal ',
+      date: ' January 28, 2024',
+      image: require("../assets/posts/tennis.jpg"),
+      overlayImage: require("../assets/posts/selfie5.jpg"),
+    },
+    {
+      id: '5',
+      avatarPhoto: require("../assets/profileUser/7.jpg"),
+      profileName: 'Samantha Smith',
+      location: 'Sintra, Portugal ',
+      date: ' January 2, 2024',
+      image: require("../assets/posts/cooking.jpg"),
+      overlayImage: require("../assets/posts/selfie3.jpg"),
+    },
+  ];
+  
   const events2 = [
     {
       id: "1",
@@ -143,69 +206,6 @@ const ProfileScreen2 = ({ navigation }) => {
       name: 'Noth Events',
       location: 'Porto, Portugal'
     }
-  ];
-
-  const data = {
-    id: '1',
-    name: 'Samantha Smith',
-    job: 'Marketing',
-    birthdate: 'April 3, 1998',
-    description: "I'm Maya, your go-to girl for all things marketing! By day, I'm busy crafting killer campaigns and bringing brands to life. But when the workday's over, you'll find me embracing life to the fullest. I'm a free spirit with a passion for adventure and a love for the simple things.",
-    interests: ['Yoga', 'Traveling', 'Reading', 'Singing', 'Animals', 'Socializing'],
-    icon: "work-outline",
-    images: [require("../assets/profileUser/profile/concert.jpg"),
-    require('../assets/profileUser/profile/cicling.jpg'),
-    require('../assets/profileUser/profile/dog.jpg'),
-    require('../assets/profileUser/profile/ioga.jpg'),
-    require('../assets/profileUser/profile/traveling.jpg')]
-  };
-
-  const posts = [
-    {
-      id: '1',
-      avatarPhoto: require("../assets/profileUser/7.jpg"),
-      profileName: 'Samantha Smith',
-      location: 'New York, USA ',
-      date: ' April 3, 2024',
-      image: require("../assets/posts/camping.jpg"),
-      overlayImage: require("../assets/posts/selfie1.webp"),
-    },
-    {
-      id: '2',
-      avatarPhoto: require("../assets/profileUser/7.jpg"),
-      profileName: 'Samantha Smith',
-      location: 'London, UK ',
-      date: ' May 10, 2024',
-      image: require("../assets/posts/concert.jpg"),
-      overlayImage: require("../assets/posts/selfie2.jpg"),
-    },
-    {
-      id: '3',
-      avatarPhoto: require("../assets/profileUser/7.jpg"),
-      profileName: 'Samantha Smith',
-      location: 'Sydney, Australia ',
-      date: ' February 19, 2024',
-      image: require("../assets/posts/gaming.jpg"),
-      overlayImage: require("../assets/posts/selfie4.jpg"),
-    },
-    {
-      id: '4',
-      avatarPhoto: require("../assets/profileUser/7.jpg"),
-      profileName: 'Samantha Smith',
-      location: 'Lisbon, Portugal ',
-      date: ' January 28, 2024',
-      image: require("../assets/posts/tennis.jpg"),
-      overlayImage: require("../assets/posts/selfie5.jpg"),
-    },
-    {
-      id: '5',
-      avatarPhoto: require("../assets/profileUser/7.jpg"),
-      profileName: 'Samantha Smith',
-      location: 'Sintra, Portugal ',
-      date: ' January 2, 2024',
-      image: require("../assets/posts/cooking.jpg"),
-      overlayImage: require("../assets/posts/selfie3.jpg"),
-    },
   ];
 
   const profiles = [
@@ -400,11 +400,6 @@ const ProfileScreen2 = ({ navigation }) => {
         )}
         
       </View>
-      
-      <View style={{ marginBottom: 84 }} />
-      <TouchableOpacity onPress={navigateToEvents} style={styles.bottomButton}>
-        <Text style={styles.buttonText}>Go Back</Text>
-      </TouchableOpacity>
 
     </ScrollView>
   );
