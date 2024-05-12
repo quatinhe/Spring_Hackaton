@@ -4,11 +4,11 @@ import TextInputWithLabel from '../../components/TextWithInputLabel';
 
 const RegistrationScreen = (props) => {
 
-    const [name, setName] = useState('João');
-    const [surname, setSurame] = useState('Jorge');
-    const [age, setAge] = useState('22');
-    const [profession, setProfession] = useState('Software Engineer');
-    const [email, setEmail] = useState('joaojorge@gmail.com');
+    const [name, setName] = useState('Samantha');
+    const [surname, setSurame] = useState('Smith');
+    const [age, setAge] = useState('25');
+    const [profession, setProfession] = useState('Marketing');
+    const [email, setEmail] = useState('samantha@gmail.com');
     const [password, setPassword] = useState('*********');
 
     return (
@@ -41,11 +41,6 @@ const RegistrationScreen = (props) => {
                         label="Profession:"
                         value={profession}
                         onChangeText={setProfession}
-                    />
-                    <TextInputWithLabel
-                        label="Age:"
-                        value={age}
-                        onChangeText={setAge}
                     />
                     <TextInputWithLabel
                         label="Email:"
