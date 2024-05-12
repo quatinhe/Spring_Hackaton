@@ -58,7 +58,6 @@ const InterestScreen2 = (props) => {
     }
 
     useEffect(() => {
-        console.log(selectedCategories);
     }, [selectedCategories]);
 
     return (

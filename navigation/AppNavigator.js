@@ -4,8 +4,10 @@ import HomeScreen from '../screens/HomeScreen';
 import EventDetailScreen from '../screens/EventDetailScreen';
 import AccountsScreen from '../screens/AccountsScreen';
 import ProfileDetailScreen from '../screens/ProfileDetailScreen';
-import {BottomNavBar} from '../components/BottomNavBar';
-import CreateEventScreen from '../screens/CreateEvent';
+import { BottomNavBar } from '../components/BottomNavBar';
+import ProfileScreen from '../screens/ProfileScreen';
+import ProfileEventScreen from '../screens/ProfileEventScreen';
+import ConversationScreen from '../screens/ConversationScreen';
 
 const Stack = createStackNavigator();
 
@@ -13,27 +15,40 @@ function AppNavigator() {
   return (
     <Stack.Navigator initialRouteName="Home">
       <Stack.Screen name="Home" component={BottomNavBar} options={{ headerShown: false }} />
-      <Stack.Screen name="EventDetails" component={EventDetailScreen} options={{ title: 'Event Details' }} />
-      <Stack.Screen name="CreateEventScreen" component={CreateEventScreen} options={{ 
-          title: 'Create New Event', // Set a more user-friendly title
-          headerStyle: {
-            backgroundColor: '#f4511e', // Example: a colored background
-          },
-          headerTintColor: '#fff', // Example: white back button and title
-          headerTitleStyle: {
-            fontWeight: 'bold',
-          },
-        }} />
+      <Stack.Screen name="EventDetails" component={EventDetailScreen} options={{ title: 'Event Details', headerTitleAlign: 'center',  }} />
       <Stack.Screen
         name="Accounts"
         component={AccountsScreen}
-        options={{ title: 'Accounts' }}
+        options={{ title: 'Accounts',
+        headerTitleAlign: 'center', 
+         }}
       />
       <Stack.Screen
-        name="ProfileDetail"
-        component={ProfileDetailScreen}
-        options={{ title: 'Profile Details' }}
+        name="ProfileScreen"
+        component={ProfileScreen}
+        options={{
+          title: 'Profile Details',
+          headerTitleAlign: 'center', 
+        }}
       />
+      <Stack.Screen
+        name="ProfileEventScreen"
+        component={ProfileEventScreen}
+        options={{
+          title: 'Profile Details',
+          headerTitleAlign: 'center', 
+        }}
+      />
+      <Stack.Screen
+        name="ConversationScreen"
+        component={ConversationScreen}
+        options={{
+          headerShown: false,
+          title: 'Conversation Details',
+          headerTitleAlign: 'center', 
+        }}
+      />
+
     </Stack.Navigator>
   );
 }

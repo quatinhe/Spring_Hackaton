@@ -9,6 +9,7 @@ import PhotoScreen from '../screens/PhotoScreen';
 import {Colors} from "../theme/theme";
 import CircleIcon from './CircleIcon';
 import TabNavigator from '../components/TabNavigator';
+import ProfileEventScreen from '../screens/ProfileEventScreen';
 
 export const BottomNavBar = () => {
     
@@ -90,8 +91,8 @@ const styles = StyleSheet.create({
         backgroundColor: "#ffffff",
         position: "absolute",
         bottom: 10,
-        left: 20,
-        right: 20,
+        left: 8,
+        right: 8,
         elevation: 5,
         borderRadius: 25,
         height: 75,

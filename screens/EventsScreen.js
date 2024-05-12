@@ -3,6 +3,9 @@ import { View, StyleSheet, FlatList, Text, ScrollView } from 'react-native';
 import { FAB } from 'react-native-paper';
 import EventCard from '../components/EventCard';
 import EventCardHorizontal from '../components/EventCardHorizontal';
+import { Colors } from '../theme/theme';
+import CategorySelector from '../components/CategorySelector';
+import { Feather } from '@expo/vector-icons';
 
 const EventScreen = ({ navigation }) => {
   const events = [
@@ -38,6 +41,8 @@ const EventScreen = ({ navigation }) => {
       location: 'Madrid, Spain'
     }
   ];
+
+  const categories = ['Gaming', 'Voleybol', 'Painting', 'Clubbing', "Hiking", "Cooking"];
 
   return (
     <View style={styles.flexContainer}>
@@ -83,7 +88,8 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   title: {
-    fontSize: 18,
+    fontSize: 20,
+    marginLeft: 5,
     fontWeight: 'bold',
     marginBottom: 10,
   },
