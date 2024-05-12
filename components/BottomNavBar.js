@@ -24,7 +24,7 @@ export const BottomNavBar = () => {
                 tabBarIcon: ({ focused }) => (
                   isCenterIcon ? (
                     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                      <CircleIcon icon={require('../assets/icons/camera.png')} />
+                      <CircleIcon icon={require('../assets/icons/cameraWhite.png')} color={color} />
                     </View>
 
                   ) : (
@@ -68,9 +68,9 @@ export const BottomNavBar = () => {
             }}
         >
             {TabScreen("Events", TabNavigator, require("../assets/icons/events.png"), Colors.lighBlue, 40, 30)}
-            {TabScreen("Circle", CircleScreen, require("../assets/icons/circle.png"), Colors.veryLighBlue, 40, 30)}
-            {TabScreen("Photo", PhotoScreen, require("../assets/icons/camera.png"), Colors.lightPink, 40, 30, isCenterIcon = true)}
-            {TabScreen("Chat", ChatScreen, require("../assets/icons/chat.png"), Colors.purple, 25, 30)}
+            {TabScreen("Circle", CircleScreen, require("../assets/icons/circle.png"), Colors.purple, 40, 30)}
+            {TabScreen("Photo", PhotoScreen, require("../assets/icons/camera.png"), Colors.veryLighBlue, 40, 30, isCenterIcon = true)}
+            {TabScreen("Chat", ChatScreen, require("../assets/icons/chat.png"), Colors.veryLighBlue, 25, 30)}
             {TabScreen("Profile", ProfileScreen, require("../assets/icons/profile.png"), Colors.pink, 25, 30)}
         </Tab.Navigator>)
 
