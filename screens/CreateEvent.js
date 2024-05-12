@@ -1,5 +1,14 @@
 import React from 'react';
-import { View, Text, StyleSheet, ScrollView, TextInput, Button, TouchableOpacity, Image } from 'react-native';
+import { 
+  View, 
+  Text, 
+  StyleSheet, 
+  ScrollView, 
+  TextInput, 
+  Button, 
+  TouchableOpacity, 
+  Image 
+} from 'react-native';
 import { Picker } from '@react-native-picker/picker';
 import DatePicker from '@react-native-community/datetimepicker';
 import { launchImageLibrary } from 'react-native-image-picker';
@@ -100,7 +109,10 @@ const CreateEventScreen = ({ navigation }) => {
       />
 
       <Text style={styles.label}>Event Image</Text>
-      <Button title="Select Image" onPress={selectImage} />
+      <TouchableOpacity onPress={selectImage} style={styles.button3}>
+        <Text style={styles.buttonText}>Select Image</Text>
+      </TouchableOpacity>
+
       {event.image && (
         <Image source={event.image} style={{ width: 200, height: 200 }} />
       )}
@@ -109,6 +121,7 @@ const CreateEventScreen = ({ navigation }) => {
       <TouchableOpacity onPress={() => setShowDatePicker(true)} style={styles.dateInput}>
         <Text>{event.date.toDateString()}</Text>
       </TouchableOpacity>
+
       {showDatePicker && (
         <DatePicker
           value={event.date}
@@ -122,6 +135,7 @@ const CreateEventScreen = ({ navigation }) => {
       <TouchableOpacity onPress={() => setShowTimePicker(true)} style={styles.dateInput}>
         <Text>{event.date.getHours() + ':' + (event.date.getMinutes() < 10 ? '0' + event.date.getMinutes() : event.date.getMinutes())}</Text>
       </TouchableOpacity>
+
       {showTimePicker && (
         <DatePicker
           value={event.date}
@@ -132,8 +146,12 @@ const CreateEventScreen = ({ navigation }) => {
       )}
 
       <View style={styles.buttonContainer}>
-        <Button title="Create Event" onPress={handleCreateEvent} color="#4CAF50" />
-        <Button title="Cancel" onPress={handleCancel} color="#F44336" />
+        <TouchableOpacity onPress={handleCreateEvent} style={[styles.button1, { backgroundColor: '#4CAF50' }]}>
+          <Text style={styles.buttonText}>Create Event</Text>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={handleCancel} style={[styles.button2, { backgroundColor: '#F44336' }]}>
+          <Text style={styles.buttonText}>Cancel</Text>
+        </TouchableOpacity>
       </View>
     </ScrollView>
   );
@@ -143,12 +161,15 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 20,
+    backgroundColor: '#e0e0e0',
   },
   input: {
     height: 40,
     marginBottom: 12,
-    borderWidth: 1,
+    borderRadius: 10, // Rounded corners
+    backgroundColor: '#FFFFFF', // White background color for inputs
     padding: 10,
+    marginBottom: 25,
   },
   label: {
     fontSize: 16,
@@ -157,14 +178,46 @@ const styles = StyleSheet.create({
   dateInput: {
     height: 40,
     marginBottom: 12,
-    borderWidth: 1,
+    borderRadius: 10, // Rounded corners
+    backgroundColor: '#FFFFFF', // White background color for inputs
     padding: 10,
     justifyContent: 'center',
+    marginBottom: 25,
   },
   buttonContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     marginTop: 20,
+    borderRadius: 10, // Rounded corners
+    overflow: 'hidden', // Ensures children don't overflow the curved border
+  },
+  button1: {
+    width: 150,
+    height: 40,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 10, // Rounded corners
+    marginBottom: 30,
+  },
+  button2: {
+    width: 150,
+    height: 40,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 10, // Rounded corners
+    marginBottom: 30,
+  },
+  button3: {
+    height: 40,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 10, // Rounded corners
+    backgroundColor: '#2196F3', // Background color of the button
+    marginBottom: 25,
+  },
+  buttonText: {
+    color: '#FFFFFF',
+    fontSize: 16,
   },
 });
 
