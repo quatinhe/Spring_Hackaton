@@ -35,7 +35,7 @@ const posts = [
   {
     id: "3",
     avatarPhoto: require("../assets/profileUser/3.jpeg"),
-    profileName: 'July Roberts',
+    profileName: 'Julia Roberts',
     location: 'Sydney, Australia ',
     date: ' February 19, 2024',
     image: require("../assets/posts/gaming.jpg"),
@@ -48,7 +48,7 @@ const posts = [
     location: 'Lisbon, Portugal ',
     date: ' January 28, 2024',
     image: require("../assets/posts/tennis.jpg"),
-    overlayImage: require("../assets/posts/selfie5.jpg"),
+    overlayImage: require("../assets/posts/teniswatcher.jpg"),
   },
   {
     id: "5",
