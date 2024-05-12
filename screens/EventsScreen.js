@@ -1,10 +1,10 @@
 import React from 'react';
 import { View, StyleSheet, FlatList, Text, ScrollView } from 'react-native';
+import { FAB } from 'react-native-paper';
 import EventCard from '../components/EventCard';
 import EventCardHorizontal from '../components/EventCardHorizontal';
 
-const EventScreen = ({ }) => {
-
+const EventScreen = ({ navigation }) => {
   const events = [
     {
       id: "1",
@@ -40,32 +40,44 @@ const EventScreen = ({ }) => {
   ];
 
   return (
-    <ScrollView style={styles.container}>
-      <Text style={styles.title}>Recomended Activities:</Text>
-      <View style={styles.container2}>
-        <FlatList
-          data={events}
-          renderItem={({ item }) => <EventCard event={item} />}
-          keyExtractor={(item) => item.id}
-          horizontal
-        />
-      </View>
-      <Text style={styles.title}>Your Future Activities:</Text>
-      <View style={styles.container2}>
-        {events.map(event => (
-          <EventCardHorizontal event={event} key={event.id} />
-        ))}
-      </View>
-      <View style={{ marginBottom: 100 }} />
-    </ScrollView>
+    <View style={styles.flexContainer}>
+      <ScrollView style={styles.container}>
+        <Text style={styles.title}>Recommended Activities:</Text>
+        <View style={styles.container2}>
+          <FlatList
+            data={events}
+            renderItem={({ item }) => <EventCard event={item} />}
+            keyExtractor={(item) => item.id}
+            horizontal
+          />
+        </View>
+        <Text style={styles.title}>Your Future Activities:</Text>
+        <View style={styles.container2}>
+          {events.map(event => (
+            <EventCardHorizontal event={event} key={event.id} />
+          ))}
+        </View>
+        <View style={{ marginBottom: 100 }} />
+      </ScrollView>
+      <FAB
+        style={styles.fab}
+        small
+        icon="plus"
+        color="black"  // Set the icon color to black
+        onPress={() => navigation.navigate('CreateEventScreen')}
+      />
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
+  flexContainer: {
+    flex: 1,
+    backgroundColor: '#fff',
+  },
   container: {
     flex: 1,
     padding: 10,
-    backgroundColor: '#fff',
   },
   container2: {
     marginBottom: 20,
@@ -75,6 +87,14 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     marginBottom: 10,
   },
+  fab: {
+    position: 'absolute',
+    margin: 16,
+    right: 0,
+    bottom: 100,
+    backgroundColor: 'green', 
+    borderRadius: 30,
+  }
 });
 
 export default EventScreen;
