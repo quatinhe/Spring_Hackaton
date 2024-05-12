@@ -7,6 +7,7 @@ import ProfileDetailScreen from '../screens/ProfileDetailScreen';
 import { BottomNavBar } from '../components/BottomNavBar';
 import ProfileScreen from '../screens/ProfileScreen';
 import ProfileEventScreen from '../screens/ProfileEventScreen';
+import InstaPhoto from '../screens/InstaPhoto';
 
 const Stack = createStackNavigator();
 
@@ -36,6 +37,18 @@ function AppNavigator() {
         options={{
           title: 'Profile Details',
           headerTitleAlign: 'center', 
+        }}
+      />
+      <Stack.Screen
+        name="InstaPhoto"
+        component={InstaPhoto}
+        options={{
+          title: '',
+          headerTitleAlign: 'center',
+          headerTintColor: 'white', 
+          headerStyle: {
+            backgroundColor: 'black', 
+          }, 
         }}
       />
 

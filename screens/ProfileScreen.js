@@ -1,12 +1,15 @@
-import React from 'react';
-import { StyleSheet, View, Text, Image, FlatList, ScrollView } from 'react-native';
+import React, { useState } from 'react';
+import { StyleSheet, View, Text, Image, FlatList, ScrollView, TouchableOpacity } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
 import Swiper from 'react-native-swiper';
 import { Colors } from '../theme/theme';
 import EventCard from '../components/EventCard';
 import PictureCard from '../components/PictureCard';
+import AvatarWithName from '../components/AvatarComponent';
 
-const ProfileScreen = ({ navigation}) => {
+const ProfileScreen = ({ navigation }) => {
+
+  const [activeSection, setActiveSection] = useState('events');
 
   const events = [
     {
@@ -58,44 +61,44 @@ const ProfileScreen = ({ navigation}) => {
   };
 
   const posts = [
-  {
-    id: '1',
-    avatarPhoto: require("../assets/profileUser/7.jpg"),
-    profileName: 'Samantha Smith',
-    location: 'New York, USA ',
-    date: ' April 3, 2024',
-    image: require("../assets/posts/camping.jpg"),
-    overlayImage: require("../assets/posts/selfie1.webp"),
-  },
-  {
-    id: '2',
-    avatarPhoto: require("../assets/profileUser/7.jpg"),
-    profileName: 'Samantha Smith',
-    location: 'London, UK ',
-    date: ' May 10, 2024',
-    image: require("../assets/posts/concert.jpg"),
-    overlayImage: require("../assets/posts/selfie2.jpg"),
-  },
-  {
-    id: '3',
-    avatarPhoto: require("../assets/profileUser/7.jpg"),
-    profileName: 'Samantha Smith',
-    location: 'Sydney, Australia ',
-    date: ' February 19, 2024',
-    image: require("../assets/posts/gaming.jpg"),
-    overlayImage: require("../assets/posts/selfie4.jpg"),
-  },
-  {
-    id: '4',
-    avatarPhoto: require("../assets/profileUser/7.jpg"),
-    profileName: 'Samantha Smith',
-    location: 'Lisbon, Portugal ',
-    date: ' January 28, 2024',
-    image: require("../assets/posts/tennis.jpg"),
-    overlayImage: require("../assets/posts/selfie5.jpg"),
-  },
-  {
-    id: '5',
+    {
+      id: '1',
+      avatarPhoto: require("../assets/profileUser/7.jpg"),
+      profileName: 'Samantha Smith',
+      location: 'New York, USA ',
+      date: ' April 3, 2024',
+      image: require("../assets/posts/camping.jpg"),
+      overlayImage: require("../assets/posts/selfie1.webp"),
+    },
+    {
+      id: '2',
+      avatarPhoto: require("../assets/profileUser/7.jpg"),
+      profileName: 'Samantha Smith',
+      location: 'London, UK ',
+      date: ' May 10, 2024',
+      image: require("../assets/posts/concert.jpg"),
+      overlayImage: require("../assets/posts/selfie2.jpg"),
+    },
+    {
+      id: '3',
+      avatarPhoto: require("../assets/profileUser/7.jpg"),
+      profileName: 'Samantha Smith',
+      location: 'Sydney, Australia ',
+      date: ' February 19, 2024',
+      image: require("../assets/posts/gaming.jpg"),
+      overlayImage: require("../assets/posts/selfie4.jpg"),
+    },
+    {
+      id: '4',
+      avatarPhoto: require("../assets/profileUser/7.jpg"),
+      profileName: 'Samantha Smith',
+      location: 'Lisbon, Portugal ',
+      date: ' January 28, 2024',
+      image: require("../assets/posts/tennis.jpg"),
+      overlayImage: require("../assets/posts/selfie5.jpg"),
+    },
+    {
+      id: '5',
       avatarPhoto: require("../assets/profileUser/7.jpg"),
       profileName: 'Samantha Smith',
       location: 'Sintra, Portugal ',
@@ -103,8 +106,50 @@ const ProfileScreen = ({ navigation}) => {
       image: require("../assets/posts/cooking.jpg"),
       overlayImage: require("../assets/posts/selfie3.jpg"),
     },
-];
+  ];
 
+  const profiles = [
+    {
+      id: "1",
+      avatar: require('../assets/profileUser/1.jpg'),
+      name: 'John',
+      lastName: 'Smith',
+    },
+    {
+      id: "2",
+      avatar: require('../assets/profileUser/2.jpg'),
+      name: 'Andrew',
+      lastName: 'Miller',
+    },
+    {
+      id: "3",
+      avatar: require('../assets/profileUser/3.jpeg'),
+      name: 'Emily',
+      lastName: 'Adams',
+    },
+    {
+      id: "4",
+      avatar: require('../assets/profileUser/5.jpg'),
+      name: 'Maria',
+      lastName: 'Amélia',
+    },
+    {
+      id: "5",
+      avatar: require('../assets/profileUser/6.jpg'),
+      name: 'Nuno',
+      lastName: 'Guerreiro',
+    },
+    {
+      id: "6",
+      avatar: require('../assets/profileUser/9.jpeg'),
+      name: 'Lila',
+      lastName: 'Yang',
+    }
+  ];
+
+  const toggleSection = (section) => {
+    setActiveSection(section);
+  };
 
   return (
     <ScrollView style={styles.container}>
@@ -146,69 +191,118 @@ const ProfileScreen = ({ navigation}) => {
           </View>
         </View>
 
-        <View style={styles.section}>
-          <View style={styles.containerTitle}>
-            <Text style={styles.sectionTitle}>My events</Text>
-            <Text style={styles.viewAllText}>View all</Text>
-          </View>
-          <View style={styles.container2}>
-            <FlatList
-              data={events}
-              renderItem={({ item }) => <EventCard navigation= { navigation} event={item} />}
-              keyExtractor={(item) => item.id}
-              horizontal
-            />
-          </View>
+        <View style={styles.toggleButtons}>
+          <TouchableOpacity
+            style={[styles.toggleButton, activeSection === 'events' && styles.activeToggleButton]}
+            onPress={() => toggleSection('events')}
+          >
+            <Text style={[styles.toggleButtonText, activeSection === 'events' && styles.activeToggleButtonText]}>Events</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={[styles.toggleButton, activeSection === 'friends' && styles.activeToggleButton]}
+            onPress={() => toggleSection('friends')}
+          >
+            <Text style={[styles.toggleButtonText, activeSection === 'friends' && styles.activeToggleButtonText]}>Friends</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={[styles.toggleButton, activeSection === 'gallery' && styles.activeToggleButton]}
+            onPress={() => toggleSection('gallery')}
+          >
+            <Text style={[styles.toggleButtonText, activeSection === 'gallery' && styles.activeToggleButtonText]}>Gallery</Text>
+          </TouchableOpacity>
+
         </View>
 
-        <View style={styles.section}>
-          <View style={styles.containerTitle}>
-            <Text style={styles.sectionTitle}>My Future events</Text>
-            <Text style={styles.viewAllText}>View all</Text>
-          </View>
-          <View style={styles.container2}>
-            <FlatList
-              data={events}
-              renderItem={({ item }) => <EventCard navigation= { navigation} event={item} />}
-              keyExtractor={(item) => item.id}
-              horizontal
-            />
-          </View>
-        </View>
+        {activeSection === 'events' && (
+          <View style={styles.sectionToggle}>
+            <View style={styles.section}>
+              <View style={styles.containerTitle}>
+                <Text style={styles.sectionTitle}>My events</Text>
+                <Text style={styles.viewAllText}>View all</Text>
+              </View>
+              <View style={styles.container2}>
+                <FlatList
+                  data={events}
+                  renderItem={({ item }) => <EventCard navigation={navigation} event={item} />}
+                  keyExtractor={(item) => item.id}
+                  horizontal
+                />
+              </View>
+            </View>
 
-        <View style={styles.section}>
-          <View style={styles.containerTitle}>
-            <Text style={styles.sectionTitle}>My Previous Events</Text>
-            <Text style={styles.viewAllText}>View all</Text>
-          </View>
-          <View style={styles.container2}>
-            <FlatList
-              data={events}
-              renderItem={({ item }) => <EventCard navigation= { navigation} event={item} />}
-              keyExtractor={(item) => item.id}
-              horizontal
-            />
-          </View>
-        </View>
+            <View style={styles.section}>
+              <View style={styles.containerTitle}>
+                <Text style={styles.sectionTitle}>My Future events</Text>
+                <Text style={styles.viewAllText}>View all</Text>
+              </View>
+              <View style={styles.container2}>
+                <FlatList
+                  data={events}
+                  renderItem={({ item }) => <EventCard navigation={navigation} event={item} />}
+                  keyExtractor={(item) => item.id}
+                  horizontal
+                />
+              </View>
+            </View>
 
-        <View style={styles.section}>
-          <View style={styles.containerTitle}>
-            <Text style={styles.sectionTitle}>Galery</Text>
-            <Text style={styles.viewAllText}>View all</Text>
+            <View style={styles.section}>
+              <View style={styles.containerTitle}>
+                <Text style={styles.sectionTitle}>My Previous Events</Text>
+                <Text style={styles.viewAllText}>View all</Text>
+              </View>
+              <View style={styles.container2}>
+                <FlatList
+                  data={events}
+                  renderItem={({ item }) => <EventCard navigation={navigation} event={item} />}
+                  keyExtractor={(item) => item.id}
+                  horizontal
+                />
+              </View>
+            </View>
           </View>
-          <View style={styles.container2}>
-            <FlatList
-              data={posts}
-              renderItem={({ item }) => <PictureCard post={item} index={item.id} small={true}/>}
-              keyExtractor={(item) => item.id}
-              horizontal
-            />
+        )}
+        {activeSection === 'friends' && (
+          <View style={styles.sectionToggle}>
+            <View style={styles.section}>
+            <View style={styles.friendsContainer}>
+              {profiles.map((profile) => (
+                <AvatarWithName
+                  key={profile.id}
+                  navigation={navigation}
+                  image={profile.avatar}
+                  name={profile.name}
+                  lastName={profile.lastName}
+                />
+              ))}
+            </View>
           </View>
-        </View>
 
-        <View style={{ marginBottom: 84 }} />
 
+          </View>
+        )}
+        {activeSection === 'gallery' && (
+          <View style={styles.sectionToggle}>
+            <View style={styles.section}>
+              <View style={styles.containerTitle}>
+                <Text style={styles.sectionTitle}>Galery</Text>
+                <Text style={styles.viewAllText}>View all</Text>
+              </View>
+              <View style={styles.container2}>
+                <FlatList
+                  data={posts}
+                  renderItem={({ item }) => <PictureCard navigation={navigation} post={item} index={item.id} small={true} />}
+                  keyExtractor={(item) => item.id}
+                  horizontal
+                />
+              </View>
+            </View>
+          </View>
+        )}
       </View>
+
+      <View style={{ marginBottom: 84 }} />
+
+
     </ScrollView>
   );
 };
@@ -275,6 +369,9 @@ const styles = StyleSheet.create({
     marginRight: 22,
     marginBottom: 20,
   },
+  sectionToggle: {
+    marginBottom: 20,
+  },
   sectionTitle: {
     fontSize: 18,
     fontWeight: 'bold',
@@ -327,19 +424,48 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    paddingHorizontal: 0, 
+    paddingHorizontal: 0,
   },
   sectionTitle: {
     fontSize: 18,
     fontWeight: 'bold',
     marginBottom: 10,
-    
+
   },
   viewAllText: {
     fontSize: 16,
-    color: 'gray', 
+    color: 'gray',
   },
-
+  toggleButtons: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    marginVertical: 10,
+    marginBottom: 20,
+    marginTop: 20,
+  },
+  toggleButton: {
+    paddingVertical: 6,
+    paddingHorizontal: 20,
+    borderBottomWidth: 3,
+    borderBottomColor: 'transparent',
+  },
+  activeToggleButton: {
+    borderBottomColor: Colors.pink,
+  },
+  toggleButtonText: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    color: 'gray', // Initial color of the text
+  },
+  activeToggleButtonText: {
+    color: Colors.pink, // Change color when active
+  },
+  friendsContainer: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'space-around',
+  },
+  
 });
 
 export default ProfileScreen;
