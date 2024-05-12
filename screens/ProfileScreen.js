@@ -60,6 +60,20 @@ const ProfileScreen = ({ navigation }) => {
     require('../assets/profileUser/profile/traveling.jpg')]
   };
 
+  const data2 = {
+    id: '1',
+    name: 'John Anderson',
+    job: 'Software Engineer',
+    birthdate: 'December 1, 1990',
+    description: "Hiking enthusiast, social butterfly, and coding wizard. Dad to an amazing son. Passionate about exploring nature's beauty and building cool software. Let's share stories over a campfire or dive into the latest tech trends together ",
+    interests: ['Hoking', 'Traveling', 'Computer', 'Gaming','Socializing'],
+    icon: "computer",
+    images: [require("../assets/profileUser/profile/man2.jpg"),
+    require('../assets/profileUser/profile/man1.jpg'),
+    require('../assets/profileUser/profile/man3.jpg'),
+    require('../assets/profileUser/profile/man4.jpg')]
+  };
+
   const posts = [
     {
       id: '1',
@@ -151,6 +165,8 @@ const ProfileScreen = ({ navigation }) => {
     setActiveSection(section);
   };
 
+  var dataDisplay = data2;
+
   return (
     <ScrollView style={styles.container}>
       <View style={styles.swiperContainer}>
@@ -158,34 +174,34 @@ const ProfileScreen = ({ navigation }) => {
           showsPagination={true}
           paginationStyle={styles.paginationStyle}
           activeDotStyle={styles.activeDotStyle} dotStyle={styles.dotStyle}>
-          {data.images.map((item, index) => (
+          {dataDisplay.images.map((item, index) => (
             <Image key={index} source={item} style={styles.profileImage} />
           ))}
         </Swiper>
       </View>
 
       <View style={styles.containerContent}>
-        <Text style={styles.name}>{data.name}</Text>
+        <Text style={styles.name}>{dataDisplay.name}</Text>
         <View style={styles.professionContainer}>
-          <MaterialIcons name={data.icon} size={22} color="black" style={styles.icon} />
-          <Text style={styles.profession}>{data.job}</Text>
+          <MaterialIcons name={dataDisplay.icon} size={22} color="black" style={styles.icon} />
+          <Text style={styles.profession}>{dataDisplay.job}</Text>
         </View>
 
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>About me</Text>
           <Text style={styles.sectionContent}>
-            {data.description}
+            {dataDisplay.description}
           </Text>
           <View style={styles.birthdateContainer}>
             <MaterialIcons name="cake" size={22} color="black" style={styles.iconBirthday} />
-            <Text style={styles.birthdate}>{data.birthdate}</Text>
+            <Text style={styles.birthdate}>{dataDisplay.birthdate}</Text>
           </View>
         </View>
 
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>Interests</Text>
           <View style={styles.interestsContainer}>
-            {data.interests.map((interest, index) => (
+            {dataDisplay.interests.map((interest, index) => (
               <Text key={index} style={styles.interest}>{interest}</Text>
             ))}
           </View>
