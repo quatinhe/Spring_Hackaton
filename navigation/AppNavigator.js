@@ -11,6 +11,11 @@ import InstaPhoto from '../screens/InstaPhoto';
 import ConversationScreen from '../screens/ConversationScreen';
 import CreateEventScreen from '../screens/CreateEvent';
 import ProfileScreen2 from '../screens/ProfileScreen2';
+import { LogBox } from 'react-native';
+
+
+LogBox.ignoreLogs(['Found screens with the same name nested inside one another']);
+LogBox.ignoreLogs(['Require cycles are allowed, but can result in uninitialized values. Consider refactoring to remove the need for a cycle.']);
 
 const Stack = createStackNavigator();
 
