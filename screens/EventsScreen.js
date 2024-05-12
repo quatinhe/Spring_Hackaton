@@ -15,30 +15,30 @@ const EventScreen = ({ navigation }) => {
       description: 'Join us for a fun and challenging \nhackathon.',
       image: require('../assets/SpringHackaton.jpg'),
       avatar: require('../assets/profileUser/1.jpg'),
-      date: '2023-05-01',
+      date: '2024-05-12',
       duration: 2,
-      name: 'Community Org',
-      location: 'New York, USA'
+      name: 'Núcleo de informática',
+      location: 'Caparica, Portugal'
     },
     {
       id: "2",
       title: 'Festival F',
-      date: '2023-05-01',
+      date: '2024-09-15',
       description: 'Annual music and arts\n festival.',
       image: require('../assets/FestivalF.png'),
       avatar: require('../assets/profileUser/1.jpg'),
-      name: 'Community Org',
-      location: 'London, UK'
+      name: 'Câmara municipal de Faro',
+      location: 'Faro, Portugal'
     },
     {
       id: "3",
       title: 'Diego Velazquez Exhibition',
-      date: '2023-05-01',
+      date: '2024-05-15',
       description: 'Explore the works of \nDiego Velazquez.',
       image: require('../assets/velazquez.jpg'),
       avatar: require('../assets/profileUser/1.jpg'),
-      name: 'Community Org',
-      location: 'Madrid, Spain'
+      name: 'Associação Gulbenkian',
+      location: 'Lisboa, Portugal'
     }
   ];
 
