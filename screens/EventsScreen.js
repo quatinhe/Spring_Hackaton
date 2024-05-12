@@ -1,14 +1,13 @@
 import React from 'react';
-import { View, StyleSheet, FlatList, Text, ScrollView, SafeAreaView } from 'react-native';
+import { View, StyleSheet, FlatList, Text, ScrollView } from 'react-native';
+import { FAB } from 'react-native-paper';
 import EventCard from '../components/EventCard';
 import EventCardHorizontal from '../components/EventCardHorizontal';
 import { Colors } from '../theme/theme';
 import CategorySelector from '../components/CategorySelector';
 import { Feather } from '@expo/vector-icons';
 
-
 const EventScreen = ({ navigation }) => {
-
   const events = [
     {
       id: "1",
@@ -46,38 +45,44 @@ const EventScreen = ({ navigation }) => {
   const categories = ['Gaming', 'Voleybol', 'Painting', 'Clubbing', "Hiking", "Cooking"];
 
   return (
-    <ScrollView style={styles.container}>
-      <Text style={styles.title}>Recomended Activities:</Text>
-      <View style={styles.container2}>
-        <FlatList
-          data={events}
-          renderItem={({ item }) => <EventCard  navigation= { navigation} event={item} />}
-          keyExtractor={(item) => item.id} 
-          horizontal
-        />
-      </View>
-      <Text style={styles.title}>Your Future Activities:</Text>
-      <SafeAreaView style={styles.safeArea}>
-        <View style={styles.containerToggle}>
-          <CategorySelector categories={categories} />
-          <Feather name="chevron-right" size={24} color="black" style={styles.arrowIcon} />
+    <View style={styles.flexContainer}>
+      <ScrollView style={styles.container}>
+        <Text style={styles.title}>Recommended Activities:</Text>
+        <View style={styles.container2}>
+          <FlatList
+            data={events}
+            renderItem={({ item }) => <EventCard event={item} />}
+            keyExtractor={(item) => item.id}
+            horizontal
+          />
         </View>
-      </SafeAreaView>
-      <View style={styles.container2}>
-        {events.map(event => (
-          <EventCardHorizontal navigation= { navigation} event={event} key={event.id} />
-        ))}
-      </View>
-      <View style={{ marginBottom: 100 }} />
-    </ScrollView>
+        <Text style={styles.title}>Your Future Activities:</Text>
+        <View style={styles.container2}>
+          {events.map(event => (
+            <EventCardHorizontal event={event} key={event.id} />
+          ))}
+        </View>
+        <View style={{ marginBottom: 100 }} />
+      </ScrollView>
+      <FAB
+        style={styles.fab}
+        small
+        icon="plus"
+        color="black"  // Set the icon color to black
+        onPress={() => navigation.navigate('CreateEventScreen')}
+      />
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
+  flexContainer: {
+    flex: 1,
+    backgroundColor: '#fff',
+  },
   container: {
     flex: 1,
     padding: 10,
-    backgroundColor: Colors.background,
   },
   container2: {
     marginBottom: 20,
@@ -88,17 +93,14 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     marginBottom: 10,
   },
-  safeArea: {
-    flex: 1,
-  },
-  containerToggle: {
-
-  },
-  arrowIcon: {
+  fab: {
     position: 'absolute',
-    top: 8,
-    right: -8,
-  },
+    margin: 16,
+    right: 0,
+    bottom: 100,
+    backgroundColor: 'green', 
+    borderRadius: 30,
+  }
 });
 
 export default EventScreen;
