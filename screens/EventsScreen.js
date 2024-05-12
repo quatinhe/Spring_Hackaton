@@ -67,7 +67,7 @@ const EventScreen = ({ navigation }) => {
       <FAB
         style={styles.fab}
         icon="plus"
-        color="black"  // Set the icon color to black
+        color="white"  // Set the icon color to black
         onPress={() => navigation.navigate('CreateEventScreen')}
       />
     </View>
