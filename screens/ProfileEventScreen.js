@@ -48,6 +48,7 @@ const ProfileEventScreen = ({navigation}) => {
         job: 'Sport',
         date: '23-03-2023',
         hour: '10:00h',
+        location: 'Faro, Portugal',
         avatar: require('../assets/profileUser/1.jpg'),
         nameResponsable: 'Nautic Club',
         description: "Embarking on a group canoeing adventure in Lisbon's tranquil lake offers a perfect blend of camaraderie and natural beauty. Against the city's skyline, paddlers navigate the serene waters, discovering hidden coves and enjoying playful water games. With each stroke of the paddle, bonds strengthen, creating lasting memories against the backdrop of a stunning sunset.",
@@ -56,6 +57,23 @@ const ProfileEventScreen = ({navigation}) => {
         images: [require('../assets/activity/2.jpg'),
         require('../assets/activity/1.jpg'),
         require('../assets/activity/3.jpg')]
+    };
+
+    const data2 = {
+        id: '2',
+        name: 'Spring Hackaton',
+        job: 'Event',
+        date: '10-05-2024',
+        hour: '18:00h',
+        location: 'Lisbon, Portugal',
+        avatar: require('../assets/profileUser/logoNinf.png'),
+        nameResponsable: 'Ninf FCT NOVA',
+        description: "Embarke on a hackathon, a fast-paced event where teams collaborate to create innovative software or hardware projects within a tight timeframe. Participants brainstorm, code, and present their solutions to challenges, fostering creativity and teamwork in the process.",
+        interests: ['Sport', 'Gaming', 'Socialize', 'Event'],
+        icon: "keyboard",
+        images: [require('../assets/activity/hackaton1.jpg'),
+        require('../assets/activity/hackaton2.jpg'),
+        require('../assets/activity/hackaton3.jpg')]
     };
 
     const posts = [
@@ -106,6 +124,8 @@ const ProfileEventScreen = ({navigation}) => {
         },
     ];
 
+    var dataDisplay = data2;
+
 
     return (
         <ScrollView style={styles.container}>
@@ -114,25 +134,25 @@ const ProfileEventScreen = ({navigation}) => {
                     showsPagination={true}
                     paginationStyle={styles.paginationStyle}
                     activeDotStyle={styles.activeDotStyle} dotStyle={styles.dotStyle}>
-                    {data.images.map((item, index) => (
+                    {dataDisplay.images.map((item, index) => (
                         <Image key={index} source={item} style={styles.profileImage} />
                     ))}
                 </Swiper>
             </View>
 
             <View style={styles.containerContent}>
-                <Text style={styles.name}>{data.name}</Text>
+                <Text style={styles.name}>{dataDisplay.name}</Text>
                 <View style={styles.professionContainer}>
-                    <MaterialIcons name={data.icon} size={22} color="black" style={styles.icon} />
-                    <Text style={styles.profession}>{data.job}</Text>
+                    <MaterialIcons name={dataDisplay.icon} size={22} color="black" style={styles.icon} />
+                    <Text style={styles.profession}>{dataDisplay.job}</Text>
                 </View>
 
                 <EventCardProfile
-                    time="10:00h"
-                    name="Clube Náutico"
-                    date="10-03-2024"
-                    location="Lisbon, Portugal"
-                    logo={require("../assets/profileUser/1.jpg")}
+                    time={dataDisplay.hour}
+                    name={dataDisplay.nameResponsable}
+                    date={dataDisplay.date}
+                    location={dataDisplay.location}
+                    logo={dataDisplay.avatar}
                 />
 
                 <TouchableOpacity style={styles.participateButton}>
@@ -142,14 +162,14 @@ const ProfileEventScreen = ({navigation}) => {
                 <View style={styles.section}>
                     <Text style={styles.sectionTitle}>Description</Text>
                     <Text style={styles.sectionContent}>
-                        {data.description}
+                        {dataDisplay.description}
                     </Text>
                 </View>
 
                 <View style={styles.section}>
                     <Text style={styles.sectionTitle}>Interests</Text>
                     <View style={styles.interestsContainer}>
-                        {data.interests.map((interest, index) => (
+                        {dataDisplay.interests.map((interest, index) => (
                             <Text key={index} style={styles.interest}>{interest}</Text>
                         ))}
                     </View>
