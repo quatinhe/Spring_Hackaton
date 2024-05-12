@@ -29,7 +29,10 @@ const CreateEventScreen = ({ navigation }) => {
 
   const handleCreateEvent = () => {
     console.log('Event Created:', event);
-    navigation.goBack();
+    // Assuming your event creation logic goes here and is successful
+  
+    // Navigate to the UpdatedEventsScreen
+    navigation.navigate('ProfileScreen2');
   };
 
   const handleCancel = () => {

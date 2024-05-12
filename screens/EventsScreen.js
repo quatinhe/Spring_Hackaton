@@ -51,7 +51,7 @@ const EventScreen = ({ navigation }) => {
         <View style={styles.container2}>
           <FlatList
             data={events}
-            renderItem={({ item }) => <EventCard event={item} />}
+            renderItem={({ item }) => <EventCard event={item} navigation={navigation} />}
             keyExtractor={(item) => item.id}
             horizontal
           />
@@ -59,7 +59,7 @@ const EventScreen = ({ navigation }) => {
         <Text style={styles.title}>Your Future Activities:</Text>
         <View style={styles.container2}>
           {events.map(event => (
-            <EventCardHorizontal event={event} key={event.id} />
+            <EventCardHorizontal event={event} key={event.id} navigation={navigation} />
           ))}
         </View>
         <View style={{ marginBottom: 100 }} />

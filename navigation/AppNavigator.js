@@ -10,6 +10,7 @@ import ProfileEventScreen from '../screens/ProfileEventScreen';
 import InstaPhoto from '../screens/InstaPhoto';
 import ConversationScreen from '../screens/ConversationScreen';
 import CreateEventScreen from '../screens/CreateEvent';
+import ProfileScreen2 from '../screens/ProfileScreen2';
 
 const Stack = createStackNavigator();
 
@@ -71,7 +72,14 @@ function AppNavigator() {
           headerTitleAlign: 'center', 
         }}
       />
-
+      <Stack.Screen
+        name="ProfileScreen2"
+        component={ProfileScreen2}
+        options={{
+          title: 'Profile Details',
+          headerTitleAlign: 'center', 
+        }}
+      />
 
     </Stack.Navigator>
   );
