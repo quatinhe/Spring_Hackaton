@@ -93,7 +93,7 @@ const styles = StyleSheet.create({
     borderColor: 'white', // Border color for the circle
     position: 'absolute',
     bottom: "0%",
-    left: "40%", // Adjust as needed
+    left: "36%", // Adjust as needed
     
   },
   innerCircle: {
