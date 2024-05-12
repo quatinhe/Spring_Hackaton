@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Image, StyleSheet } from 'react-native';
 import { Colors } from "../theme/theme";
 
-const CircleIcon = ({ icon }) => {
+const CircleIcon = ({ icon, color }) => {
   return (
     <View style={styles.circle}>
       <Image source={icon} style={styles.icon} />
@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
     width: 80,
     height: 80,
     borderRadius: 50,
-    backgroundColor: Colors.lightPink,
+    backgroundColor: Colors.veryVeryLighBlue,
     justifyContent: 'center',
     alignItems: 'center',
     bottom: 33,

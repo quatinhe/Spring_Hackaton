@@ -38,12 +38,13 @@ const ChatScreen = ({route}) => {
             </ScrollView>
             <View style={styles.inputContainer}>
                 <TextInput
+                
                     style={styles.input}
                     value={text}
                     onChangeText={setText}
                     placeholder="Message"
                 />
-                <Button icon="send" onPress={sendMessage}>Send</Button>
+                <Button icon="send" onPress={sendMessage} labelStyle={{ fontSize: 30, color: 'black' }}></Button>
             </View>
         </KeyboardAvoidingView>
     );
@@ -56,15 +57,15 @@ const styles = StyleSheet.create({
     },
     myMessage: {
         alignSelf: 'flex-end',
-        marginVertical: 5,
         padding: 10,
-        backgroundColor: '#DCF8C6', // Light green background
+        backgroundColor: "#6FDFEF", // Light green background
         borderRadius: 20,
         maxWidth: '80%',
+        margin: 10,
     },
     otherMessage: {
         alignSelf: 'flex-start',
-        marginVertical: 5,
+        margin: 10,
         padding: 10,
         backgroundColor: '#fff',
         borderRadius: 20,
@@ -76,6 +77,7 @@ const styles = StyleSheet.create({
         fontSize: 16,
     },
     inputContainer: {
+        marginLeft: 10,
         flexDirection: 'row',
         padding: 10,
         alignItems: 'center',
