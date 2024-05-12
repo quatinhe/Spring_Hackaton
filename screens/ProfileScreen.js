@@ -7,7 +7,7 @@ import EventCard from '../components/EventCard';
 import PictureCard from '../components/PictureCard';
 import AvatarWithName from '../components/AvatarComponent';
 
-const ProfileScreen = ({ navigation }) => {
+const ProfileScreen = ({ navigation, route }) => {
 
   const [activeSection, setActiveSection] = useState('events');
 
@@ -146,7 +146,7 @@ const ProfileScreen = ({ navigation }) => {
     name: 'Samantha Smith',
     job: 'Marketing',
     birthdate: 'April 3, 1998',
-    description: "I'm Maya, your go-to girl for all things marketing! By day, I'm busy crafting killer campaigns and bringing brands to life. But when the workday's over, you'll find me embracing life to the fullest. I'm a free spirit with a passion for adventure and a love for the simple things.",
+    description: "I'm Samantha, your go-to girl for all things marketing! By day, I'm busy crafting killer campaigns and bringing brands to life. But when the workday's over, you'll find me embracing life to the fullest. I'm a free spirit with a passion for adventure and a love for the simple things.",
     interests: ['Yoga', 'Traveling', 'Reading', 'Singing', 'Animals', 'Socializing'],
     icon: "work-outline",
     images: [require("../assets/profileUser/profile/concert.jpg"),
@@ -262,6 +262,13 @@ const ProfileScreen = ({ navigation }) => {
   };
 
   var dataDisplay = data2;
+  const hasId = route && route.name;
+  console.log(route)
+    if(hasId){
+        if( route.name == "Profile"){
+            dataDisplay = data;
+        }
+    }
 
   return (
     <ScrollView style={styles.container}>

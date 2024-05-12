@@ -7,8 +7,7 @@ import PictureCard from '../components/PictureCard';
 import AvatarWithName from '../components/AvatarComponent';
 import EventCardProfile from '../components/EventCardProfile';
 
-const ProfileEventScreen = ({navigation}) => {
-
+const ProfileEventScreen = ({ navigation, route }) => {
     const profiles = [
         {
             id: "1",
@@ -42,14 +41,14 @@ const ProfileEventScreen = ({navigation}) => {
         }
     ];
 
-    const data = {
+    const data1 = {
         id: '1',
         name: 'Canoeing',
         job: 'Sport',
         date: '23-03-2023',
         hour: '10:00h',
         location: 'Faro, Portugal',
-        avatar: require('../assets/profileUser/1.jpg'),
+        avatar: require('../assets/profileUser/logoClub.jpeg'),
         nameResponsable: 'Nautic Club',
         description: "Embarking on a group canoeing adventure in Lisbon's tranquil lake offers a perfect blend of camaraderie and natural beauty. Against the city's skyline, paddlers navigate the serene waters, discovering hidden coves and enjoying playful water games. With each stroke of the paddle, bonds strengthen, creating lasting memories against the backdrop of a stunning sunset.",
         interests: ['Sport', 'Water', 'Socialize', 'Outdoors'],
@@ -76,7 +75,7 @@ const ProfileEventScreen = ({navigation}) => {
         require('../assets/activity/hackaton3.jpg')]
     };
 
-    const posts = [
+    const posts1 = [
         {
             id: "1",
             avatarPhoto: require("../assets/profileUser/1.jpg"),
@@ -124,7 +123,46 @@ const ProfileEventScreen = ({navigation}) => {
         // },
     ];
 
-    var dataDisplay = data2;
+    const posts2 = [
+        {
+            id: "1",
+            avatarPhoto: require("../assets/profileUser/1.jpg"),
+            profileName: 'John Doe',
+            location: 'New York, USA ',
+            date: ' April 3, 2024',
+            image: require("../assets/posts/hackaton1.jpg"),
+            overlayImage: require("../assets/posts/canooingSelfie1.jpg"),
+        },
+        {
+            id: "2",
+            avatarPhoto: require("../assets/profileUser/2.jpg"),
+            profileName: 'Edward Smith',
+            location: 'London, UK ',
+            date: ' May 10, 2024',
+            image: require("../assets/posts/hackaton2.jpg"),
+            overlayImage: require("../assets/posts/cannoingSelfie2.jpg"),
+        },
+        {
+            id: "3",
+            avatarPhoto: require("../assets/profileUser/3.jpeg"),
+            profileName: 'July Roberts',
+            location: 'Sydney, Australia ',
+            date: ' February 19, 2024',
+            image: require("../assets/posts/hackaton3.jpg"),
+            overlayImage: require("../assets/posts/canooingSelfie3.jpg"),
+        },
+    ];
+
+    var dataDisplay = data1;
+    var posts = posts1;
+    const hasId = route.params && route.params.id;
+    if(hasId){
+        if(route.params.id == "Spring Hackaton"){
+            dataDisplay = data2;
+            posts = posts2;
+        }
+    }
+    
 
 
     return (

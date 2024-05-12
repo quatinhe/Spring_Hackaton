@@ -3,11 +3,9 @@ import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons'; // Choose suitable icons
 
 const EventCard = ({ event, onPress,  navigation }) => {
-  console.log(event);
-  console.log(navigation);
   return (
     <TouchableOpacity onPress={() => {
-      navigation.navigate('ProfileEventScreen');
+      navigation.navigate('ProfileEventScreen', {id : event.title});
     }} style={styles.card}>
       <View style={styles.imageContainer}>
         <Image source={event.image} style={styles.image} />
