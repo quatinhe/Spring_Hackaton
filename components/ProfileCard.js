@@ -17,7 +17,7 @@ const ProfileCard = ({ profile, onPress }) => {
         <Text style={styles.categories}>{profile.categories.join(', ')}</Text>
       </View>
       <IconButton
-        icon={isFollowing ? 'heart' : 'heart-outline'}  // Change icon based on following state
+        icon={isFollowing ? 'check' : 'plus'}  // Change icon based on following state
         color={isFollowing ? 'red' : 'grey'}  
         
         onPress={handleFollow}  // Handle follow toggle

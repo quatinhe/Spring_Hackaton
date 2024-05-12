@@ -80,10 +80,10 @@ const styles = StyleSheet.create({
     width: 40,
     height: 40,
     outline: 'black',
-    backgroundColor: Colors.lightPink,
+    //backgroundColor: Colors.lightPink,
     borderRadius: 10, // Half of width and height for a perfect circle
-    marginTop: 20,
-    left: 150,
+    marginTop: "10%",
+    marginLeft: "70%",
   },
   btnCamera: {
     width: 100, // Adjust as needed
@@ -92,8 +92,8 @@ const styles = StyleSheet.create({
     borderWidth: 7, // Border width for the circle
     borderColor: 'white', // Border color for the circle
     position: 'absolute',
-    bottom: 20,
-    left: 150, // Adjust as needed
+    bottom: "0%",
+    left: "40%", // Adjust as needed
     
   },
   innerCircle: {

@@ -1,25 +1,29 @@
 import React from 'react';
-import { View, Text, Image, StyleSheet } from 'react-native';
+import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
 
-const PictureCard = ({post, index, small}) => {
+const PictureCard = ({post, index, small, navigation}) => {
 
   return (
-        <View style={styles(small).container} key={index}>
-          <View style={styles(small).header}>
-            <Image source={post.avatarPhoto} style={styles(small).avatar} />
-            <View style={styles(small).headerText}>
-              <Text style={styles(small).profileName}>{post.profileName}</Text>
-              <Text style={styles(small).details}>{post.location} - {post.date}</Text>
-            </View>
-          </View>
-          <Image source={post.image} style={styles(small).image} />
-          <Image source={post.overlayImage} style={styles(small).overlayImage} />
-          <View style={styles(small).iconContainer}>
-            <Image source={require("../assets/icons/clapping.png")} style={styles(small).iconClap} />
-            <Image source={require("../assets/icons/coment.png")} style={styles(small).icon} />
-            <Image source={require("../assets/icons/share.png")} style={styles(small).icon} />
+    <View style={styles(small).container} key={index}>
+      <TouchableOpacity onPress={() => {
+      navigation.navigate('ProfileScreen');
+    }}>
+        <View style={styles(small).header}>
+          <Image source={post.avatarPhoto} style={styles(small).avatar} />
+          <View style={styles(small).headerText}>
+          <Text style={styles(small).profileName}>{post.profileName}</Text>
+            <Text style={styles(small).details}>{post.location} - {post.date}</Text>
           </View>
         </View>
+      </TouchableOpacity>
+      <Image source={post.image} style={styles(small).image} />
+      <Image source={post.overlayImage} style={styles(small).overlayImage} />
+      <View style={styles(small).iconContainer}>
+        <Image source={require("../assets/icons/clapping.png")} style={styles(small).iconClap} />
+        <Image source={require("../assets/icons/coment.png")} style={styles(small).icon} />
+        <Image source={require("../assets/icons/share.png")} style={styles(small).icon} />
+      </View>
+    </View>
   );
 };
 

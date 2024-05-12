@@ -7,7 +7,7 @@ import PictureCard from '../components/PictureCard';
 import AvatarWithName from '../components/AvatarComponent';
 import EventCardProfile from '../components/EventCardProfile';
 
-const ProfileEventScreen = () => {
+const ProfileEventScreen = ({navigation}) => {
 
     const profiles = [
         {
@@ -163,7 +163,7 @@ const ProfileEventScreen = () => {
                     <View style={styles.container2}>
                         <FlatList
                             data={profiles}
-                            renderItem={({ item }) => <AvatarWithName image={item.avatar} name={item.name} lastName={item.lastName} />}
+                            renderItem={({ item }) => <AvatarWithName navigation= { navigation} image={item.avatar} name={item.name} lastName={item.lastName} />}
                             keyExtractor={(item) => item.id}
                             horizontal
                         />
@@ -178,7 +178,7 @@ const ProfileEventScreen = () => {
                     <View style={styles.container2}>
                         <FlatList
                             data={posts}
-                            renderItem={({ item }) => <PictureCard post={item} index={item.id} small={true} />}
+                            renderItem={({ item }) => <PictureCard navigation={navigation} post={item} index={item.id} small={true} />}
                             keyExtractor={(item) => item.id}
                             horizontal
                         />

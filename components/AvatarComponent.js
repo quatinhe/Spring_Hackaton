@@ -1,13 +1,15 @@
 import React from 'react';
-import { StyleSheet, View, Text, Image } from 'react-native';
+import { StyleSheet, View, Text, Image, TouchableOpacity } from 'react-native';
 
-const AvatarWithName = ({ image, name, lastName }) => {
+const AvatarWithName = ({ image, name, lastName, navigation }) => {
   return (
-    <View style={styles.container}>
+    <TouchableOpacity onPress={() => {
+      navigation.navigate('ProfileScreen');
+    }} style={styles.container}>
       <Image source={image} style={styles.avatar} />
       <Text style={styles.name}>{name}</Text>
       <Text style={styles.lastName}>{lastName}</Text>
-    </View>
+    </TouchableOpacity>
   );
 }
 
