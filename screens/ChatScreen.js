@@ -113,7 +113,7 @@ const [activeTab, setActiveTab] = useState('All');
         <View style={styles.topBarContainer}>
           <View style={styles.profileContainer}>
             <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.profileContainer}>
-              <CircleWithPlus onPress={() => doNothing} />
+              <CircleWithPlus onPress={() => navigation.navigate("Photo")} />
               {profiles.map((profile, index) => (
                 <AvatarWithName navigation = {navigation} key={index} image={profile.avatar} name={profile.name} lastName={profile.lastName} />
               ))}
