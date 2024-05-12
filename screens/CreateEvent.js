@@ -4,35 +4,36 @@ import { Picker } from '@react-native-picker/picker';
 import DatePicker from '@react-native-community/datetimepicker';
 import { launchImageLibrary } from 'react-native-image-picker';
 
-
 const CreateEventScreen = ({ navigation }) => {
   const [event, setEvent] = React.useState({
-    name: '',
-    description: '',
-    duration: '',
-    categories: '',
+    name: 'Mario Kart Event',
+    description: 'Come have fun playing Mario Kart with us!',
+    duration: '5 hours',
+    categories: 'Gaming',
     date: new Date(),
+    location: 'Lisbon, Portugal',
     image: null,
   });
- 
+
+  const [showDatePicker, setShowDatePicker] = React.useState(false);
+  const [showTimePicker, setShowTimePicker] = React.useState(false);
+
   const handleCreateEvent = () => {
     console.log('Event Created:', event);
     navigation.goBack();
   };
 
-  
   const handleCancel = () => {
     navigation.goBack();
   };
-  const [showDatePicker, setShowDatePicker] = React.useState(false);
-  
+
   const selectImage = () => {
     const options = {
       storageOptions: {
         skipBackup: true,
         path: 'images',
       },
-};
+    };
     launchImageLibrary(options, response => {
       if (response.didCancel) {
         console.log('User cancelled image picker');
@@ -44,6 +45,22 @@ const CreateEventScreen = ({ navigation }) => {
       }
     });
   };
+
+  const onDateChange = (event, selectedDate) => {
+    const currentDate = selectedDate || event.date;
+    setShowDatePicker(false);
+    setEvent(prevEvent => ({ ...prevEvent, date: currentDate }));
+  };
+
+  const onTimeChange = (event, selectedTime) => {
+    const currentTime = selectedTime || event.time;
+    setShowTimePicker(false);
+    setEvent(prevEvent => ({
+      ...prevEvent,
+      date: new Date(prevEvent.date.setHours(currentTime.getHours(), currentTime.getMinutes()))
+    }));
+  };
+
   return (
     <ScrollView style={styles.container}>
       <Text style={styles.label}>Name of event</Text>
@@ -52,12 +69,6 @@ const CreateEventScreen = ({ navigation }) => {
         value={event.name}
         onChangeText={(text) => setEvent({ ...event, name: text })}
       />
-
-      <Text style={styles.label}>Event Image</Text>
-      <Button title="Select Image" onPress={selectImage} />
-      {event.image && (
-        <Image source={event.image} style={{ width: 200, height: 200 }} />
-      )}
 
       <Text style={styles.label}>Event description</Text>
       <TextInput
@@ -74,17 +85,27 @@ const CreateEventScreen = ({ navigation }) => {
         onChangeText={(text) => setEvent({ ...event, duration: text })}
       />
 
-    <Text style={styles.label}>Indicate categories</Text>
-    <TextInput
-    style={styles.input}
-    value={event.categories}
-    onChangeText={(text) => setEvent({ ...event, categories: text })}
-    />
+      <Text style={styles.label}>Set location of event</Text>
+      <TextInput
+        style={styles.input}
+        value={event.location}
+        onChangeText={(text) => setEvent({ ...event, location: text })}
+      />
 
+      <Text style={styles.label}>Indicate categories</Text>
+      <TextInput
+        style={styles.input}
+        value={event.categories}
+        onChangeText={(text) => setEvent({ ...event, categories: text })}
+      />
 
+      <Text style={styles.label}>Event Image</Text>
+      <Button title="Select Image" onPress={selectImage} />
+      {event.image && (
+        <Image source={event.image} style={{ width: 200, height: 200 }} />
+      )}
 
-
-      <Text style={styles.label}>Starting Date/Hour</Text>
+      <Text style={styles.label}>Starting Date</Text>
       <TouchableOpacity onPress={() => setShowDatePicker(true)} style={styles.dateInput}>
         <Text>{event.date.toDateString()}</Text>
       </TouchableOpacity>
@@ -93,18 +114,27 @@ const CreateEventScreen = ({ navigation }) => {
           value={event.date}
           mode="date"
           display="default"
-          onChange={(e, selectedDate) => {
-            setShowDatePicker(false);
-            
-            setEvent(prevEvent => ({ ...prevEvent, date: selectedDate || prevEvent.date }));
-          }}
+          onChange={onDateChange}
         />
       )}
 
-    <View style={styles.buttonContainer}>
+      <Text style={styles.label}>Starting Time</Text>
+      <TouchableOpacity onPress={() => setShowTimePicker(true)} style={styles.dateInput}>
+        <Text>{event.date.getHours() + ':' + (event.date.getMinutes() < 10 ? '0' + event.date.getMinutes() : event.date.getMinutes())}</Text>
+      </TouchableOpacity>
+      {showTimePicker && (
+        <DatePicker
+          value={event.date}
+          mode="time"
+          display="default"
+          onChange={onTimeChange}
+        />
+      )}
+
+      <View style={styles.buttonContainer}>
         <Button title="Create Event" onPress={handleCreateEvent} color="#4CAF50" />
         <Button title="Cancel" onPress={handleCancel} color="#F44336" />
-    </View>
+      </View>
     </ScrollView>
   );
 };
