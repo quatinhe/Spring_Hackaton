@@ -66,7 +66,6 @@ const EventScreen = ({ navigation }) => {
       </ScrollView>
       <FAB
         style={styles.fab}
-        small
         icon="plus"
         color="black"  // Set the icon color to black
         onPress={() => navigation.navigate('CreateEventScreen')}
@@ -78,7 +77,7 @@ const EventScreen = ({ navigation }) => {
 const styles = StyleSheet.create({
   flexContainer: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: Colors.background,
   },
   container: {
     flex: 1,
@@ -98,8 +97,12 @@ const styles = StyleSheet.create({
     margin: 16,
     right: 0,
     bottom: 100,
-    backgroundColor: 'green', 
-    borderRadius: 30,
+    backgroundColor: Colors.lighBlue, 
+    borderRadius: 40,
+    height: 70,
+    width: 70,
+    justifyContent: 'center',
+    alignItems: 'center', // Center the icon horizontally and vertically
   }
 });
 
